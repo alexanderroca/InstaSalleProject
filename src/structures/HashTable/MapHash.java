@@ -30,7 +30,7 @@ public class MapHash<K,V> {
         return key.hashCode() % capacity;
     }
 
-    //Get Node of MapHash
+    //Get NodeAVL of MapHash
     public V get(K key){
         int index = getNode(key);
         NodeHash<K,V> node = array.get(index);
