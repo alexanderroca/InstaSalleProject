@@ -9,7 +9,7 @@ public class Menu {
 
         System.out.println("BENVINGUT AL NOSTRE PROGRAMA");
 
-        while(!opcio.equals("7")) {
+        while(!opcio.equals("9")) {
             System.out.println("Tria una opcio:");
             System.out.println("\t1- Importacio de l'estat de l'estructura");
             System.out.println("\t2- Exportacio de l'estat de l'estructura");
@@ -17,32 +17,54 @@ public class Menu {
             System.out.println("\t4- Insercio d'informacio");
             System.out.println("\t5- Esborrar informacio");
             System.out.println("\t6- Cercar informacio");
-            System.out.println("\t7- Sortir");
+            System.out.println("\t7- Autocompletar");
+            System.out.println("\t8- Limitar memoria per autocompletar");
+            System.out.println("\t9- Sortir");
             System.out.print("> ");
             opcio = sc.nextLine();
 
-            if(opcio.equals("1") || opcio.equals("2") || opcio.equals("3") || opcio.equals("4") ||
-                    opcio.equals("5") || opcio.equals("6"))
-                subMenuPrincipal(opcio);
-
-            else if(!opcio.equals("7"))
-                System.out.println("Error, opcio incorrecte\n");
+            switch (opcio){
+                case "1":
+                    //TODO: Importacio
+                    break;
+                case "2":
+                    //TODO: Exportacio
+                    break;
+                case "3":
+                    //TODO: Visualitzacio
+                    subMenuPrincipal(opcio);
+                    break;
+                case "4":
+                    //TODO: Insercio
+                    subMenuPrincipal(opcio);
+                    break;
+                case "5":
+                    //TODO: Esborra
+                    subMenuPrincipal(opcio);
+                    break;
+                case "6":
+                    //TODO: Cerca
+                    subMenuPrincipal(opcio);
+                    break;
+                case "7":
+                    //TODO: Autocompletar
+                    break;
+                case "8":
+                    //TODO: Limitar memoria per autocompletar
+                    break;
+                case "9":
+                    break;
+                    default:
+                        mostrarError();
+                        break;
+            }   //switch
 
         }   //while
         System.out.println("\nGRACIES PER USAR EL NOSTRE PROGRAMA");
     }
 
     public void mostraOpcio(String opcio){
-        System.out.println();
         switch (opcio){
-            case "1":
-                System.out.println("Importacio de l'estat de l'estructura");
-                System.out.println("Quina estructura desitja importar?");
-                break;
-            case "2":
-                System.out.println("Exportacio de l'estat de l'estructura");
-                System.out.println("Quina estructura desitja exportar?");
-                break;
             case "3":
                 System.out.println("Visualitzacio de l'estructura");
                 System.out.println("Quina estructura desitja visualitzar?");
@@ -50,24 +72,20 @@ public class Menu {
             case "4":
                 System.out.println("Insercio d'informacio");
                 System.out.println("Quin tipus d'informacio vol inserir?");
-                //TODO: subMenu d'insercio
                 break;
             case "5":
                 System.out.println("Esborrar informacio");
                 System.out.println("Quin tipus d'informacio vol esborrar?");
-                //TODO: subMenu d'esborrar
                 break;
             case "6":
                 System.out.println("Cercar informacio");
                 System.out.println("Quin tipus d'informacio vol cercar?");
-                //TODO: subMenu de cerca
                 break;
         }   //switch
     }
 
     // Submenu from principal Menu
     public void subMenuPrincipal(String opcio){
-        String sub_opcio = new String();
         boolean done = false;
         Scanner sc = new Scanner(System.in);
 
@@ -79,38 +97,32 @@ public class Menu {
             System.out.println("\t4- Taula de Hash");
             System.out.println("\t5- Graph");
             System.out.print("> ");
-            sub_opcio = sc.nextLine();
+            String sub_opcio = sc.nextLine();
 
-            if(sub_opcio.equals("1") || sub_opcio.equals("2") || sub_opcio.equals("3"))
-                done = subMenu2(opcio, sub_opcio);
-
-            else if(opcio.equals("4") || opcio.equals("5") || opcio.equals("6"))
-                continue;
-
-            else
-                System.out.println("Error, opcio incorrecte\n");
+            switch (sub_opcio){
+                case "1":
+                    //TODO: Trie
+                    break;
+                case "2":
+                    //TODO: R-Tree
+                    break;
+                case "3":
+                    //TODO: AVL Tree or Red Black Tree
+                    break;
+                case "4":
+                    //TODO: Taula Hash
+                    break;
+                case "5":
+                    //TODO: Graf
+                    break;
+                    default:
+                        mostrarError();
+                        break;
+            }   //switch
         }   //while
     }
 
-    public boolean subMenu2(String opcio, String sub_opcio){
-        System.out.println();
-
-        switch (opcio){
-            case "1":
-                Scanner importa = new Scanner(System.in);
-                System.out.println("Especifiqui ruta del fitxer a importar");
-                //TODO: importacio, sub_opcio
-                break;
-            case "2":
-                Scanner exporta = new Scanner(System.in);
-                System.out.println("Especifiqui ruta del fitxer a exportar");
-                //TODO: exportacio, sub_opcio
-                break;
-            case "3":
-                //TODO: visitar, sub_opcio
-                break;
-        }   //switch
-
-        return true;
-    }
+   public void mostrarError(){
+       System.out.println("\nError, opcio incorrecta\n");
+   }
 }
