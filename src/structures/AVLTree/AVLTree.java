@@ -1,9 +1,8 @@
 package structures.AVLTree;
 
-
 import structures.NodeAlreadyExists;
 
-public class AVLTree {
+public class AVLTree{
     private NodeAVL root;
 
     // Function to get the height of the tree
@@ -79,6 +78,7 @@ public class AVLTree {
 
         return right;
     }
+
 
     public boolean insert_T(int key, Object object){
 
