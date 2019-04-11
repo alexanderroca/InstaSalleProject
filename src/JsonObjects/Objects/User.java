@@ -1,8 +1,8 @@
-package structures.JsonObjects.Objects;
+package JsonObjects.Objects;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import structures.JsonObjects.JsonInteraction;
+import JsonObjects.JsonInteraction;
 
 import java.io.*;
 import java.sql.Timestamp;

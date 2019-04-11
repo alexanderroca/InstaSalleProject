@@ -1,4 +1,4 @@
-package structures.JsonObjects.Objects;
+package JsonObjects.Objects;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package structures.JsonObjects;
+package JsonObjects;
 
 import java.util.ArrayList;
 

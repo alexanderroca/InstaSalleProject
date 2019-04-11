@@ -1,6 +1,7 @@
 package structures.AVLTree;
 
-import structures.Exceptions.NodeAlreadyExists;
+
+import structures.NodeAlreadyExists;
 
 public class AVLTree {
     private NodeAVL root;

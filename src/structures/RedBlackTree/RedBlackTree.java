@@ -1,6 +1,6 @@
 package structures.RedBlackTree;
 
-import structures.Exceptions.NodeAlreadyExists;
+import structures.NodeAlreadyExists;
 
 public class RedBlackTree {
     public static boolean RED = true;

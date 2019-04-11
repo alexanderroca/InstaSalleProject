@@ -1,4 +1,4 @@
-package structures.Exceptions;
+package structures;
 
 public class NodeAlreadyExists extends Exception {
     public static final String MESSAGE = "A node already exists that contains the key value: ";
