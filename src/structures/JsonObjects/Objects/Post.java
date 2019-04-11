@@ -1,10 +1,10 @@
-package structures.JsonObjects;
+package structures.JsonObjects.Objects;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Vector;
 
-public class Post {
+public class Post{
     private int id;
     private ArrayList<User> liked_by;
     private Timestamp published_when;
@@ -12,7 +12,7 @@ public class Post {
     private Vector location;
     private ArrayList<String> hashtags;
 
-    
+
 
     public int getId() {
         return id;
