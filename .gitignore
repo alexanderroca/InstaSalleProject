@@ -1,0 +1,9 @@
+# Intellij #
+############
+*.iml
+*.iws
+.idea/
+
+# JSONs #
+############
+jsons/
