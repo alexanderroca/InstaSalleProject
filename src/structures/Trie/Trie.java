@@ -1,7 +1,7 @@
 package structures.Trie;
 
 public class Trie {
-    public static final int ALPHABET = 26;
+    public static final int MAX_CHAR = 256;
     private TrieNode root;
 
     public Trie() {
@@ -15,8 +15,11 @@ public class Trie {
 
         // Depth control of the word
         for(lvl = 0; lvl < lenght; lvl++){
+            if(key.charAt(lvl) >= 'A' && key.charAt(lvl) <= 'Z' )
+                index = key.charAt(lvl) - 'a';
+            else
+                index = key.charAt(lvl);
 
-            index = key.charAt(lvl) - 'a';
             if(actual.getSons()[index] == null)
                 actual.getSons()[index] = new TrieNode();
 

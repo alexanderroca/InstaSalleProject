@@ -5,9 +5,9 @@ public class TrieNode {
     private TrieNode[] sons;
 
     public TrieNode(){
-        sons = new TrieNode[Trie.ALPHABET];
+        sons = new TrieNode[Trie.MAX_CHAR];
         isEndOfWord = false;
-        for(int i = 0; i < Trie.ALPHABET; i++)
+        for(int i = 0; i < Trie.MAX_CHAR; i++)
             sons[i] = null;
     }
 
