@@ -1,6 +1,8 @@
 import JsonObjects.JsonInteraction;
 import JsonObjects.Objects.User;
 import structures.AVLTree.AVLTree;
+import structures.HashTable.MapHash;
+import structures.RedBlackTree.RedBlackTree;
 
 import java.util.ArrayList;
 
@@ -13,9 +15,11 @@ public class Test {
         User[] users = jInteraction.deserializeJSON(PATH_TEST);
 
         AVLTree avlTree = new AVLTree();
+        MapHash mapHash = new MapHash(users.length);
 
         for (int i = 0; i < users.length; i++){
             avlTree.insert_T(users[i].getUsername().hashCode(), users[i]);
+            mapHash.add(users[i].getUsername().hashCode(), users[i]);
         }   //for
 
         System.out.println("END");

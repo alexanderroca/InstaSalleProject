@@ -27,7 +27,7 @@ public class MapHash<K,V> {
 
     //Get position of the key in the MapHash
     public int getNode(K key){
-        return key.hashCode() % capacity;
+        return Math.abs(key.hashCode() % capacity);
     }
 
     //Get NodeAVL of MapHash
