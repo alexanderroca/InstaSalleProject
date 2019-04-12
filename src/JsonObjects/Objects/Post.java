@@ -6,8 +6,8 @@ import java.util.Vector;
 
 public class Post{
     private int id;
-    private ArrayList<User> liked_by;
-    private Timestamp published_when;
+    private ArrayList<String> liked_by;
+    private long published_when;
     private String published_by;
     private Vector location;
     private ArrayList<String> hashtags;
@@ -22,19 +22,19 @@ public class Post{
         this.id = id;
     }
 
-    public ArrayList<User> getLiked_by() {
+    public ArrayList<String> getLiked_by() {
         return liked_by;
     }
 
-    public void setLiked_by(ArrayList<User> liked_by) {
+    public void setLiked_by(ArrayList<String> liked_by) {
         this.liked_by = liked_by;
     }
 
-    public Timestamp getPublished_when() {
+    public long getPublished_when() {
         return published_when;
     }
 
-    public void setPublished_when(Timestamp published_when) {
+    public void setPublished_when(long published_when) {
         this.published_when = published_when;
     }
 
