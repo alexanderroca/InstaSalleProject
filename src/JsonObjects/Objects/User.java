@@ -11,7 +11,16 @@ import java.util.ArrayList;
 public class User implements JsonInteraction {
     private String username;
     private Timestamp creation;
-    private ArrayList<User> to_follow;
+    private ArrayList<String> to_follow;
+    private ArrayList<Post> posts;
+
+    public ArrayList<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(ArrayList<Post> posts) {
+        this.posts = posts;
+    }
 
     public String getUsername() {
         return username;
@@ -29,11 +38,11 @@ public class User implements JsonInteraction {
         this.creation = creation;
     }
 
-    public ArrayList<User> getTo_follow() {
+    public ArrayList<String> getTo_follow() {
         return to_follow;
     }
 
-    public void setTo_follow(ArrayList<User> to_follow) {
+    public void setTo_follow(ArrayList<String> to_follow) {
         this.to_follow = to_follow;
     }
 
