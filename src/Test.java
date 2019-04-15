@@ -1,19 +1,21 @@
 import JsonObjects.JsonInteraction;
+import JsonObjects.Objects.Post;
 import JsonObjects.Objects.User;
 import structures.AVLTree.AVLTree;
 import structures.HashTable.MapHash;
-import structures.RedBlackTree.RedBlackTree;
 import structures.Trie.Trie;
 
-import java.util.ArrayList;
 
 public class Test {
     public static void main(String[] args){
-        final String PATH_TEST = "jsons/json_test.json";
+        final String PATH_TEST = "jsons/users.json";
+        final String PATH_TEST2 = "jsons/posts.json";
 
-        JsonInteraction jInteraction = new JsonInteraction();
+        User aux = new User();
+        User[] users = (User[]) aux.deserializeJSON(PATH_TEST);
 
-        User[] users = jInteraction.deserializeJSON(PATH_TEST);
+        Post aux2 = new Post();
+        Post[] posts = (Post[]) aux2.deserializeJSON(PATH_TEST2);
 
         AVLTree avlTree = new AVLTree();
         MapHash mapHash = new MapHash(users.length);
