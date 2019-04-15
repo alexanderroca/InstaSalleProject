@@ -4,13 +4,13 @@ import structures.MyArrayList.MyArrayList;
 import java.util.ArrayList;
 
 public class MapHash<K,V> {
-    private ArrayList<NodeHash<K,V>> array;
+    private MyArrayList<NodeHash<K,V>> array;
     private int capacity;
     private int size;
 
     //Constructor, need a dimension for HashTable
     public MapHash(int dimension){
-        array = new ArrayList<>();
+        array = new MyArrayList<>(dimension);
         capacity = dimension;
         size = 0;
         for(int i = 0; i < capacity; i++) {

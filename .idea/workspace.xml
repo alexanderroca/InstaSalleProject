@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00e142c2-ca99-4a29-b158-f7626bbc8369" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/structures/HashTable/MapHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/HashTable/MapHash.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -27,26 +27,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="50" />
+          <entry key="java" value="53" />
           <entry key="json" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="50" />
+          <entry key="JAVA" value="53" />
           <entry key="JSON" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="6" />
-          <entry key="java" value="5115" />
+          <entry key="java" value="5207" />
           <entry key="json" value="485" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5115" />
+          <entry key="JAVA" value="5207" />
           <entry key="JSON" value="485" />
           <entry key="PLAIN_TEXT" value="6" />
         </counts>
@@ -56,10 +56,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+            <state relative-caret-position="204">
+              <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,8 +79,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/structures/HashTable/MapHash.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="86" column="15" lean-forward="true" selection-start-line="86" selection-start-column="15" selection-end-line="86" selection-end-column="15" />
+            <state relative-caret-position="131">
+              <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#619#620#0" expanded="true" />
@@ -87,6 +90,15 @@
                 <element signature="e#820#821#0" expanded="true" />
                 <element signature="e#878#879#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/structures/MyArrayList/MyArrayList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -132,8 +144,8 @@
         <option value="$PROJECT_DIR$/src/JsonObjects/Objects/User.java" />
         <option value="$PROJECT_DIR$/src/JsonObjects/Objects/Post.java" />
         <option value="$PROJECT_DIR$/jsons/json_test.json" />
-        <option value="$PROJECT_DIR$/src/Test.java" />
         <option value="$PROJECT_DIR$/src/structures/Trie/Trie.java" />
+        <option value="$PROJECT_DIR$/src/Test.java" />
         <option value="$PROJECT_DIR$/src/structures/MyArrayList/MyArrayList.java" />
         <option value="$PROJECT_DIR$/src/structures/HashTable/MapHash.java" />
       </list>
@@ -240,13 +252,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="structures" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="projecte_PAED" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projecte_PAED" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="structures" type="462c0819:PsiDirectoryNode" />
-              <item name="MyArrayList" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -256,7 +261,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555335741195" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555336264873" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/library/gson-2.8.2.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -332,18 +337,18 @@
       <workItem from="1555015044728" duration="3468000" />
       <workItem from="1555074638148" duration="1241000" />
       <workItem from="1555103066502" duration="1220000" />
-      <workItem from="1555334398471" duration="1128000" />
+      <workItem from="1555334398471" duration="1774000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25231000" />
+    <option name="totallyTimeSpent" value="25877000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27231467" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27231467" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -353,7 +358,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3276923" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3276923" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -414,9 +419,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Test.java</url>
-          <line>27</line>
+          <line>23</line>
           <properties />
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/structures/MyArrayList/MyArrayList.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -493,16 +504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -545,24 +546,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/structures/Trie/Trie.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/structures/MyArrayList/MyArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -577,10 +564,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/structures/MyArrayList/MyArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/structures/HashTable/MapHash.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="86" column="15" lean-forward="true" selection-start-line="86" selection-start-column="15" selection-end-line="86" selection-end-column="15" />
+        <state relative-caret-position="131">
+          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#619#620#0" expanded="true" />
