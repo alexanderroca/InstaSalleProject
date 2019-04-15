@@ -22,10 +22,13 @@ public class Test {
         Trie trie = new Trie();
 
         for (int i = 0; i < users.length; i++){
-            //avlTree.insert_T(users[i].getUsername().hashCode(), users[i]);
+            avlTree.insert_T(users[i].getUsername().hashCode(), users[i]);
             mapHash.add(users[i].getUsername().hashCode(), users[i]);
-            //trie.insert(users[i].getUsername());
+            trie.insert(users[i].getUsername());
         }   //for
+
+        String username = "alexander.roca";
+        avlTree.remove_T(username.hashCode());
 
         System.out.println("END");
     }
