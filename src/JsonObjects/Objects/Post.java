@@ -1,10 +1,14 @@
 package JsonObjects.Objects;
 
-import java.sql.Timestamp;
+import JsonObjects.JsonInteraction;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Vector;
 
-public class Post{
+public class Post implements JsonInteraction {
     private int id;
     private ArrayList<String> liked_by;
     private long published_when;
@@ -60,5 +64,27 @@ public class Post{
 
     public void setHashtags(ArrayList<String> hashtags) {
         this.hashtags = hashtags;
+    }
+
+    @Override
+    public Object[] deserializeJSON(String path) {
+        Gson gson = new GsonBuilder().create();
+        Post[] posts = null;
+        try{
+            posts = gson.fromJson(new BufferedReader(new FileReader(path)),Post[].class);
+        }catch (FileNotFoundException e){
+            System.out.println("No s'ha llegit correctament el JSON");
+        }
+        return posts;
+    }
+
+    @Override
+    public void serializeJSON(ArrayList<Object> obj, String name) {
+        try (Writer writer = new FileWriter("jsons/" + name + ".json")) {
+            Gson gson = new GsonBuilder().create();
+            gson.toJson(obj, writer);
+        } catch (IOException e) {
+            System.out.println("Problema en crear el JSON del resultat de l'ordenacio.");;
+        }
     }
 }
