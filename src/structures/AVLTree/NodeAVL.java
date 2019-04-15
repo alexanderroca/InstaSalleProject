@@ -7,10 +7,12 @@ public class NodeAVL {
     private NodeAVL left;
     private NodeAVL parent;
     private Object object;
+    private boolean active;
 
     public NodeAVL(int key, Object object) {
         this.key = key;
         height = 1;
+        active = true;
         this.object = object;
     }
 
