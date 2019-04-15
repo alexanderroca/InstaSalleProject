@@ -1,4 +1,6 @@
 package structures.HashTable;
+import structures.MyArrayList.MyArrayList;
+
 import java.util.ArrayList;
 
 public class MapHash<K,V> {
@@ -11,8 +13,9 @@ public class MapHash<K,V> {
         array = new ArrayList<>();
         capacity = dimension;
         size = 0;
-        for(int i = 0; i < capacity; i++)
+        for(int i = 0; i < capacity; i++) {
             array.add(null);
+        }   //for
     }
 
     //Size of MapHash
