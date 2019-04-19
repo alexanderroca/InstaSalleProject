@@ -16,7 +16,7 @@ public class Trie {
         // Depth control of the word
         for(lvl = 0; lvl < lenght; lvl++){
             if(key.charAt(lvl) >= 'A' && key.charAt(lvl) <= 'Z' )
-                index = key.charAt(lvl) - 'a';
+                index = key.charAt(lvl) - 'A' + 'a';
             else
                 index = key.charAt(lvl);
 
@@ -39,7 +39,11 @@ public class Trie {
         // Depth control of the word
         for(lvl = 0; lvl < lenght; lvl++){
 
-            index = key.charAt(lvl) - 'a';
+            if(key.charAt(lvl) >= 'A' && key.charAt(lvl) <= 'Z' )
+                index = key.charAt(lvl) - 'A' + 'a';
+            else
+                index = key.charAt(lvl);
+
             if(actual.getSons()[index] == null)
                 found = false;
 
@@ -51,4 +55,41 @@ public class Trie {
         else
             return actual != null && actual.isEndOfWord();
     }
+
+    public void remove_T(String key){
+        remove(root, key, 0);
+    }
+
+    public boolean remove(TrieNode n, String key, int index){
+
+        if(index == key.length()) {
+            if (!n.isEndOfWord())
+                return false;
+            n.setEndOfWord(false);
+            return n.getSons().length == 0;
+        }   //if
+
+        char character = key.charAt(index);
+
+        if (n.getSons()[key.charAt(index)] == null)
+            return false;
+
+        boolean shouldDeleteThisNode = remove(n.getSons()[key.charAt(index)], key, index + 1);
+
+        if(shouldDeleteThisNode){
+            n.getSons()[character] = null;
+            return n.getSons().length == 0;
+        }   //if
+
+        return false;
+    }
+
+    public TrieNode getRoot() {
+        return root;
+    }
+
+    public void setRoot(TrieNode root) {
+        this.root = root;
+    }
+
 }

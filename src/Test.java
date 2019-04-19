@@ -27,6 +27,9 @@ public class Test {
             trie.insert(users[i].getUsername());
         }   //for
 
+        boolean test = trie.search("alexander.roca");
+        trie.remove_T("alexander.roca");
+        test = trie.search("alexander.roca");
         String username = "alexander.roca";
         avlTree.remove_T(username.hashCode());
 
