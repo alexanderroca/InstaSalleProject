@@ -27,11 +27,11 @@ public class Test {
             trie.insert(users[i].getUsername());
         }   //for
 
-        boolean test = trie.search("alexander.roca");
-        trie.remove_T("alexander.roca");
-        test = trie.search("alexander.roca");
-        String username = "alexander.roca";
-        avlTree.remove_T(username.hashCode());
+        String name = "alexander.roca";
+        User user = (User) mapHash.get(name.hashCode());
+
+        mapHash.remove(name.hashCode());
+        mapHash.remove(name.hashCode());
 
         System.out.println("END");
     }

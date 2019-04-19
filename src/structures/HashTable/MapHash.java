@@ -74,4 +74,32 @@ public class MapHash<K,V> {
             array.set(index, new_node);
         }   //if
     }
+
+    public boolean remove(K key){
+        int index = getNode(key);
+        boolean found = false;
+        NodeHash<K,V> node = array.get(index);
+        NodeHash<K,V> prev_node = null;
+
+        while(node != null && !found){
+            if(node.getKey().equals(key))
+                found = true;
+            else {
+                prev_node = node;
+                node = node.getNext();
+            }   //else
+        }   //while
+
+        if(node == null)
+            return false;
+
+        size--;
+
+        if(prev_node != null)
+            prev_node.setNext(node.getNext());
+        else
+            array.set(index, node.getNext());
+
+        return true;
+    }
 }
