@@ -3,6 +3,7 @@ package JsonObjects.Objects;
 import JsonObjects.JsonInteraction;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import structures.MyArrayList.MyArrayList;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -15,8 +16,17 @@ public class Post implements JsonInteraction {
     private String published_by;
     private Vector location;
     private ArrayList<String> hashtags;
+    private MyArrayList<String> my_hashtags;
 
+    public MyArrayList<String> getMy_hashtags() {
+        return my_hashtags;
+    }
 
+    public void setMy_hashtags(ArrayList<String> hashtags) {
+        my_hashtags = new MyArrayList<>(hashtags.size());
+        for(int i = 0; i < hashtags.size(); i++)
+            my_hashtags.add(hashtags.get(i));
+    }
 
     public int getId() {
         return id;

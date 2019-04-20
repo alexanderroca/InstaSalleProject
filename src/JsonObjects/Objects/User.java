@@ -3,6 +3,7 @@ package JsonObjects.Objects;
 import JsonObjects.JsonInteraction;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import structures.MyArrayList.MyArrayList;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -11,6 +12,17 @@ public class User implements JsonInteraction {
     private String username;
     private long creation;
     private ArrayList<String> to_follow;
+    private MyArrayList<String> my_to_follow;
+
+    public MyArrayList<String> getMy_to_follow() {
+        return my_to_follow;
+    }
+
+    public void setMy_to_follow(ArrayList<String> to_follow) {
+        my_to_follow = new MyArrayList<>(to_follow.size());
+        for(int i = 0; i < to_follow.size(); i++)
+            my_to_follow.add(to_follow.get(i));
+    }
 
     public String getUsername() {
         return username;

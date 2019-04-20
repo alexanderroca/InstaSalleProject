@@ -5,6 +5,8 @@ import structures.AVLTree.AVLTree;
 import structures.HashTable.MapHash;
 import structures.Trie.Trie;
 
+import static JsonObjects.Objects.TransferToMyArrayList.transferInfoToMyArraylist;
+
 
 public class Test {
     public static void main(String[] args){
@@ -13,9 +15,11 @@ public class Test {
 
         User aux = new User();
         User[] users = (User[]) aux.deserializeJSON(PATH_TEST);
+        transferInfoToMyArraylist(users);
 
         Post aux2 = new Post();
         Post[] posts = (Post[]) aux2.deserializeJSON(PATH_TEST2);
+        transferInfoToMyArraylist(posts);
 
         AVLTree avlTree = new AVLTree();
         MapHash mapHash = new MapHash(users.length);
