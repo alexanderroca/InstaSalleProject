@@ -49,6 +49,14 @@ public class Graph {
         return found;
     }
 
+    public void addUserConnections(User user){
+
+        for(int i = 0; i < users.getSize(); i++)
+            for(int j = 0; j < user.getMy_to_follow().getSize(); j++)
+                if (users.get(i).getUsername().equals(user.getMy_to_follow().get(j)))
+                    users.get(i).getMy_to_follow().add(user.getUsername());
+    }
+
     public boolean insert(Object object){
         if(checkUser(object)){
             User user = (User) object;
@@ -56,18 +64,15 @@ public class Graph {
             if(!objectExists(user, null)){
                 users.add(user);
 
-                if(user.getMy_to_follow() != null){
-                    //TODO: Check connections
-                }   //if
+                if(user.getMy_to_follow() != null)
+                    addUserConnections(user);
             }
         }   //if
         else if(checkPost(object)){
             Post post = (Post) object;
 
-            if(!objectExists(null, post)){
+            if(!objectExists(null, post))
                 posts.add(post);
-                //TODO: Check connections
-            }   //if
         }   //else-if
 
         return false;

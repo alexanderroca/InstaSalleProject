@@ -8,6 +8,6 @@ public interface TransferToMyArrayList {
 
     static void transferInfoToMyArraylist(Post[] posts){
         for(int i = 0; i < posts.length; i++)
-            posts[i].setMy_hashtags(posts[i].getHashtags());
+            posts[i].setMy_ArrayLists(posts[i].getHashtags(), posts[i].getLiked_by());
     }
 }

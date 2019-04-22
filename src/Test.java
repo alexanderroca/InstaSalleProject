@@ -4,6 +4,7 @@ import JsonObjects.Objects.User;
 import structures.AVLTree.AVLTree;
 import structures.Graph.Graph;
 import structures.HashTable.MapHash;
+import structures.MyArrayList.MyArrayList;
 import structures.Trie.Trie;
 
 import static JsonObjects.Objects.TransferToMyArrayList.transferInfoToMyArraylist;
@@ -27,10 +28,9 @@ public class Test {
         MapHash mapHash = new MapHash(users.length);
         Trie trie = new Trie();
 
-        User test = new User();
-        test.setUsername("test.test");
-        test.setCreation(123456789);
-        test.setMy_to_follow(null);
+        Post test = new Post();
+        test.setId(99);
+        test.setPublished_by("test.test");
 
         graph.insert(test);
 

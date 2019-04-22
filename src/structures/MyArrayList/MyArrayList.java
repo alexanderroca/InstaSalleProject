@@ -2,7 +2,7 @@ package structures.MyArrayList;
 
 public class MyArrayList<E> {
 
-    public static int CAPACITY_DEFAULT;
+    public int CAPACITY_DEFAULT;
     private Object[] objects;
     private int size = 0;
 
@@ -77,11 +77,11 @@ public class MyArrayList<E> {
             System.out.println(objects[i]);
     }
 
-    public static int getCapacityDefault() {
+    public int getCapacityDefault() {
         return CAPACITY_DEFAULT;
     }
 
-    public static void setCapacityDefault(int capacityDefault) {
+    public void setCapacityDefault(int capacityDefault) {
         CAPACITY_DEFAULT = capacityDefault;
     }
 

@@ -12,6 +12,7 @@ import java.util.Vector;
 public class Post implements JsonInteraction {
     private int id;
     private ArrayList<String> liked_by;
+    private MyArrayList<String> my_liked_by;
     private long published_when;
     private String published_by;
     private Vector location;
@@ -22,10 +23,15 @@ public class Post implements JsonInteraction {
         return my_hashtags;
     }
 
-    public void setMy_hashtags(ArrayList<String> hashtags) {
+    public void setMy_ArrayLists(ArrayList<String> hashtags, ArrayList<String> liked_by) {
+
         my_hashtags = new MyArrayList<>(hashtags.size());
+        my_liked_by = new MyArrayList<>(liked_by.size());
+
         for(int i = 0; i < hashtags.size(); i++)
             my_hashtags.add(hashtags.get(i));
+        for(int i = 0; i < liked_by.size(); i++)
+            my_liked_by.add(liked_by.get(i));
     }
 
     public int getId() {
@@ -36,9 +42,6 @@ public class Post implements JsonInteraction {
         this.id = id;
     }
 
-    public ArrayList<String> getLiked_by() {
-        return liked_by;
-    }
 
     public void setLiked_by(ArrayList<String> liked_by) {
         this.liked_by = liked_by;
@@ -46,6 +49,18 @@ public class Post implements JsonInteraction {
 
     public long getPublished_when() {
         return published_when;
+    }
+
+    public MyArrayList<String> getMy_liked_by() {
+        return my_liked_by;
+    }
+
+    public void setMy_liked_by(MyArrayList<String> my_liked_by) {
+        this.my_liked_by = my_liked_by;
+    }
+
+    public void setMy_hashtags(MyArrayList<String> my_hashtags) {
+        this.my_hashtags = my_hashtags;
     }
 
     public void setPublished_when(long published_when) {
@@ -66,6 +81,10 @@ public class Post implements JsonInteraction {
 
     public void setLocation(Vector location) {
         this.location = location;
+    }
+
+    public ArrayList<String> getLiked_by() {
+        return liked_by;
     }
 
     public ArrayList<String> getHashtags() {
