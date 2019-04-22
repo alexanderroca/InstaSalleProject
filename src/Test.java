@@ -2,6 +2,7 @@ import JsonObjects.JsonInteraction;
 import JsonObjects.Objects.Post;
 import JsonObjects.Objects.User;
 import structures.AVLTree.AVLTree;
+import structures.Graph.Graph;
 import structures.HashTable.MapHash;
 import structures.Trie.Trie;
 
@@ -21,9 +22,17 @@ public class Test {
         Post[] posts = (Post[]) aux2.deserializeJSON(PATH_TEST2);
         transferInfoToMyArraylist(posts);
 
+        Graph graph = new Graph(users, posts);
         AVLTree avlTree = new AVLTree();
         MapHash mapHash = new MapHash(users.length);
         Trie trie = new Trie();
+
+        User test = new User();
+        test.setUsername("test.test");
+        test.setCreation(123456789);
+        test.setMy_to_follow(null);
+
+        graph.insert(test);
 
         for (int i = 0; i < users.length; i++){
             avlTree.insert_T(users[i].getUsername().hashCode(), users[i]);

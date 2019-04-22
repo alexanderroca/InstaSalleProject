@@ -2,24 +2,22 @@ package structures.Graph;
 
 import JsonObjects.Objects.Post;
 import JsonObjects.Objects.User;
+import structures.MyArrayList.MyArrayList;
 
 public class Graph {
-    private User[] users;
-    private Post[] posts;
-    private User user;
-    private Post post;
+    private MyArrayList<User> users;
+    private MyArrayList<Post> posts;
 
-    public Graph(Object[] objects) {
+    public Graph(User[] users, Post[] posts) {
 
-        if(objects instanceof User[])
-            this.users = (User[]) objects;
-        else if(objects instanceof Post[])
-            this.posts = (Post[]) objects;
-        else
-            System.out.println("Error, el graf no es compatible amb l'objecte que se l'hi ha passat");
+        this.users = new MyArrayList(users.length);
+        this.posts = new MyArrayList<>(posts.length);
 
-        user = null;
-        post = null;
+        for(User user : users)
+            this.users.add(user);
+
+        for(Post post : posts)
+            this.posts.add(post);
     }
 
     public boolean checkUser(Object object){
@@ -34,16 +32,16 @@ public class Graph {
         boolean found = false;
 
         if(user != null){
-            for(int i = 0; i < users.length && !found; i++){
+            for(int i = 0; i < users.getSize() && !found; i++){
 
-                if(user.getUsername().equals(users[i].getUsername()))
+                if(user.getUsername().equals(users.get(i).getUsername()))
                     found = true;
             }   //for
         }   //if
         else if(post != null){
-            for(int i = 0; i < posts.length && !found; i++){
+            for(int i = 0; i < posts.getSize() && !found; i++){
 
-                if(post.getId() == posts[i].getId())
+                if(post.getId() == posts.get(i).getId())
                     found = true;
             }   //for
         }   //else-if
@@ -53,14 +51,23 @@ public class Graph {
 
     public boolean insert(Object object){
         if(checkUser(object)){
-            user = (User) object;
+            User user = (User) object;
 
             if(!objectExists(user, null)){
+                users.add(user);
 
+                if(user.getMy_to_follow() != null){
+                    //TODO: Check connections
+                }   //if
             }
         }   //if
         else if(checkPost(object)){
+            Post post = (Post) object;
 
+            if(!objectExists(null, post)){
+                posts.add(post);
+                //TODO: Check connections
+            }   //if
         }   //else-if
 
         return false;

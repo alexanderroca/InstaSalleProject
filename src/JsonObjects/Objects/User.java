@@ -19,9 +19,13 @@ public class User implements JsonInteraction {
     }
 
     public void setMy_to_follow(ArrayList<String> to_follow) {
-        my_to_follow = new MyArrayList<>(to_follow.size());
-        for(int i = 0; i < to_follow.size(); i++)
-            my_to_follow.add(to_follow.get(i));
+        try {
+            my_to_follow = new MyArrayList<>(to_follow.size());
+            for (int i = 0; i < to_follow.size(); i++)
+                my_to_follow.add(to_follow.get(i));
+        }catch(NullPointerException e){
+            System.out.println(username + " no segueix a cap usuari, per tan no esta conectat a ningu.");
+        }
     }
 
     public String getUsername() {
