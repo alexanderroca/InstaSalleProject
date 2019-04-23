@@ -79,7 +79,34 @@ public class Graph {
     }
 
     public Object get(String username, int id){
-        return 1;
+        boolean found = false;
+
+        if(username != null){
+            User user = new User();
+
+            for(int i = 0; i < users.getSize() && !found; i++){
+                if(users.get(i).getUsername().equals(username)){
+                    user = users.get(i);
+                    found = true;
+                }   //if
+            }   //for
+
+            return user;
+        }   //if
+        else if(id != -1){
+            Post post = new Post();
+
+            for(int i = 0; i < posts.getSize() && !found; i++){
+                if(posts.get(i).getId() == post.getId()){
+                    post = posts.get(i);
+                    found = true;
+                }   //if
+            }   //for
+
+            return post;
+        }   //else-if
+
+        return null;
     }
 
     public boolean remove(String username, int id){
