@@ -110,6 +110,50 @@ public class Graph {
     }
 
     public boolean remove(String username, int id){
-        return true;
+        boolean found = false;
+
+        if(username != null){
+            User user = null;
+
+            for(int i = 0; i < users.getSize() && !found; i++){
+
+                if(users.get(i).getUsername().equals(username)){
+
+                    user = users.get(i);
+                    users.remove(user);
+                    found = true;
+                }   //if
+            }   //for
+
+            if(found) {
+
+                for (int i = 0; i < posts.getSize(); i++) {
+
+                    if (posts.get(i).getPublished_by().equals(username)) {
+                        posts.remove(posts.get(i));
+                        i--;
+                    }   //if
+                }   //for
+            }   //if
+
+            return found;
+        }   //if
+        else if(id != -1){
+            Post post;
+
+            for(int i = 0; i < posts.getSize() && !found; i++){
+
+                if(posts.get(i).getId() == id){
+
+                    post = posts.get(i);
+                    posts.remove(post);
+                    found = true;
+                }   //if
+            }   //for
+
+            return found;
+        }   //else-if
+
+        return false;
     }
 }

@@ -34,7 +34,7 @@ public class Test {
             trie.insert(users[i].getUsername());
         }   //for
 
-        Post test = (Post) graph.get(null, 1);
+        boolean test = graph.remove(null, 1);
 
         String name = "alexander.roca";
         User user = (User) mapHash.get(name.hashCode());
