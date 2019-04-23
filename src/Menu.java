@@ -1,8 +1,15 @@
 import java.util.Scanner;
 
+/**
+ * Classe que conte tots els menus del programa
+ * @author Alexander Roca
+ * @version 0.1
+ */
 public class Menu {
 
-    // Main Menu
+    /**
+     * Procediment que mostra el menu principal del programa
+     */
     public void menuPrincipal(){
         String opcio = new String();
         Scanner sc = new Scanner(System.in);
@@ -63,6 +70,10 @@ public class Menu {
         System.out.println("\nGRACIES PER USAR EL NOSTRE PROGRAMA");
     }
 
+    /**
+     * Procediment que mostra el submenu segons la opcio seleccionada anteriorment
+     * @param opcio : int
+     */
     public void mostraOpcio(String opcio){
         switch (opcio){
             case "3":
@@ -84,7 +95,10 @@ public class Menu {
         }   //switch
     }
 
-    // Submenu from principal Menu
+    /**
+     * Procediment que mostra quina estructura es vol usar
+     * @param opcio : int
+     */
     public void subMenuPrincipal(String opcio){
         boolean done = false;
         Scanner sc = new Scanner(System.in);
@@ -122,6 +136,9 @@ public class Menu {
         }   //while
     }
 
+    /**
+     * Procediment per mostrar un missatge d'error
+     */
    public void mostrarError(){
        System.out.println("\nError, opcio incorrecta\n");
    }

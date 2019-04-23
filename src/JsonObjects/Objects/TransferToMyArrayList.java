@@ -1,5 +1,10 @@
 package JsonObjects.Objects;
 
+/**
+ * Interficie que transfereix de Array a MyArrayList
+ * @author Alexander Roca
+ * @version 0.1
+ */
 public interface TransferToMyArrayList {
     static void transferInfoToMyArraylist(User[] users){
         for(int i = 0; i < users.length; i++)

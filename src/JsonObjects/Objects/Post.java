@@ -9,6 +9,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Vector;
 
+/**
+ * Classe que conte la informacio de tot post, aquesta classe usa la interficie JsonInteraction
+ * @author Alexander Roca
+ * @version 0.1
+ */
 public class Post implements JsonInteraction {
     private int id;
     private ArrayList<String> liked_by;

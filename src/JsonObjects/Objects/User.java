@@ -8,6 +8,11 @@ import structures.MyArrayList.MyArrayList;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * Classe que conte la informacio de tot usuari, aquesta classe usa la interficie JsonInteraction
+ * @author Alexander Roca
+ * @version 0.1
+ */
 public class User implements JsonInteraction {
     private String username;
     private long creation;

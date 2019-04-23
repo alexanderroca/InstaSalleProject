@@ -4,10 +4,21 @@ import JsonObjects.Objects.Post;
 import JsonObjects.Objects.User;
 import structures.MyArrayList.MyArrayList;
 
+/**
+ * Classe de l'estructura Graf
+ * @author Alexander Roca
+ * @version 0.1
+ */
+
 public class Graph {
     private MyArrayList<User> users;
     private MyArrayList<Post> posts;
 
+    /**
+     * Constructor per transferir les dades de l'Array estatic de Java al ArrayList creat -> MyArrayList
+     * @param users : Array de User
+     * @param posts : Array de Post
+     */
     public Graph(User[] users, Post[] posts) {
 
         this.users = new MyArrayList(users.length);
@@ -20,14 +31,30 @@ public class Graph {
             this.posts.add(post);
     }
 
+    /**
+     * Funcio que comprova que l'objecte sigui del tipus User
+     * @param object : Object
+     * @return boolean
+     */
     public boolean checkUser(Object object){
         return object instanceof User;
     }
 
+    /**
+     * Funcio que comprova que l'objecte sigui del tipus Post
+     * @param object : Object
+     * @return boolean
+     */
     public boolean checkPost(Object object){
         return object instanceof Post;
     }
 
+    /**
+     * Funcio que comprova si l'objecte existeix en l'estructura
+     * @param user : User
+     * @param post : Post
+     * @return boolean
+     */
     public boolean objectExists(User user, Post post){
         boolean found = false;
 
@@ -49,6 +76,10 @@ public class Graph {
         return found;
     }
 
+    /**
+     * Procediment que insereix les noves vinculacions entre els usuaris que estiguin relacionat amb el nou usari inserit
+     * @param user : User
+     */
     public void addUserConnections(User user){
 
         for(int i = 0; i < users.getSize(); i++)
@@ -57,6 +88,11 @@ public class Graph {
                     users.get(i).getMy_to_follow().add(user.getUsername());
     }
 
+    /**
+     * Funcio que insereix un nou User a l'estructura
+     * @param object : Object
+     * @return boolean
+     */
     public boolean insert(Object object){
         if(checkUser(object)){
             User user = (User) object;
@@ -78,6 +114,12 @@ public class Graph {
         return false;
     }
 
+    /**
+     * Funcio que cerca l'usuari o el post desitjat
+     * @param username : String
+     * @param id : int
+     * @return Object
+     */
     public Object get(String username, int id){
         boolean found = false;
 
@@ -109,6 +151,12 @@ public class Graph {
         return null;
     }
 
+    /**
+     * Funcio que elimina l'usuari o el post que es desitgi
+     * @param username : String
+     * @param id : int
+     * @return boolean
+     */
     public boolean remove(String username, int id){
         boolean found = false;
 
