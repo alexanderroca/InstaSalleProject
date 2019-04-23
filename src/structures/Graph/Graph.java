@@ -97,7 +97,7 @@ public class Graph {
             Post post = new Post();
 
             for(int i = 0; i < posts.getSize() && !found; i++){
-                if(posts.get(i).getId() == post.getId()){
+                if(posts.get(i).getId() == id){
                     post = posts.get(i);
                     found = true;
                 }   //if

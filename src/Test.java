@@ -28,17 +28,13 @@ public class Test {
         MapHash mapHash = new MapHash(users.length);
         Trie trie = new Trie();
 
-        Post test = new Post();
-        test.setId(99);
-        test.setPublished_by("test.test");
-
-        graph.insert(test);
-
         for (int i = 0; i < users.length; i++){
             avlTree.insert_T(users[i].getUsername().hashCode(), users[i]);
             mapHash.add(users[i].getUsername().hashCode(), users[i]);
             trie.insert(users[i].getUsername());
         }   //for
+
+        Post test = (Post) graph.get(null, 1);
 
         String name = "alexander.roca";
         User user = (User) mapHash.get(name.hashCode());
