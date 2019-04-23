@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00e142c2-ca99-4a29-b158-f7626bbc8369" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JsonObjects/JsonInteraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JsonObjects/JsonInteraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JsonObjects/Objects/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JsonObjects/Objects/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JsonObjects/Objects/TransferToMyArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JsonObjects/Objects/TransferToMyArrayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JsonObjects/Objects/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JsonObjects/Objects/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/Graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/Graph/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/MyArrayList/MyArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/MyArrayList/MyArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/AVLTree/AVLTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/AVLTree/AVLTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/AVLTree/NodeAVL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/AVLTree/NodeAVL.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,26 +28,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="83" />
+          <entry key="java" value="85" />
           <entry key="json" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="83" />
+          <entry key="JAVA" value="85" />
           <entry key="JSON" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="6" />
-          <entry key="java" value="13258" />
+          <entry key="java" value="15890" />
           <entry key="json" value="485" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="13258" />
+          <entry key="JAVA" value="15890" />
           <entry key="JSON" value="485" />
           <entry key="PLAIN_TEXT" value="6" />
         </counts>
@@ -64,11 +56,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+              <caret line="1" column="27" lean-forward="true" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/structures/AVLTree/AVLTree.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="205" column="79" selection-start-line="205" selection-start-column="79" selection-end-line="205" selection-end-column="79" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#665#666#0" expanded="true" />
+                <element signature="e#706#707#0" expanded="true" />
+                <element signature="e#8637#8638#0" expanded="true" />
+                <element signature="e#8664#8665#0" expanded="true" />
+                <element signature="e#8705#8706#0" expanded="true" />
+                <element signature="e#8737#8738#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/structures/AVLTree/NodeAVL.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="370">
+              <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
+              <folding>
+                <element signature="e#644#645#0" expanded="true" />
+                <element signature="e#670#671#0" expanded="true" />
+                <element signature="e#705#706#0" expanded="true" />
+                <element signature="e#735#736#0" expanded="true" />
+                <element signature="e#765#766#0" expanded="true" />
+                <element signature="e#794#795#0" expanded="true" />
+                <element signature="e#835#836#0" expanded="true" />
+                <element signature="e#871#872#0" expanded="true" />
+                <element signature="e#904#905#0" expanded="true" />
+                <element signature="e#932#933#0" expanded="true" />
+                <element signature="e#975#976#0" expanded="true" />
+                <element signature="e#1009#1010#0" expanded="true" />
+                <element signature="e#1041#1042#0" expanded="true" />
+                <element signature="e#1068#1069#0" expanded="true" />
+                <element signature="e#1109#1110#0" expanded="true" />
+                <element signature="e#1141#1142#0" expanded="true" />
+                <element signature="e#1175#1176#0" expanded="true" />
+                <element signature="e#1204#1205#0" expanded="true" />
+                <element signature="e#1249#1250#0" expanded="true" />
+                <element signature="e#1285#1286#0" expanded="true" />
+                <element signature="e#1318#1319#0" expanded="true" />
+                <element signature="e#1347#1348#0" expanded="true" />
+                <element signature="e#1391#1392#0" expanded="true" />
+                <element signature="e#1427#1428#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,9 +160,7 @@
         <option value="$PROJECT_DIR$/src/structures/OperationStructure.java" />
         <option value="$PROJECT_DIR$/jsons/json_test.json" />
         <option value="$PROJECT_DIR$/src/JsonObjects/JsonInteraction2.java" />
-        <option value="$PROJECT_DIR$/src/structures/AVLTree/NodeAVL.java" />
         <option value="$PROJECT_DIR$/src/structures/NodeDoesntExists.java" />
-        <option value="$PROJECT_DIR$/src/structures/AVLTree/AVLTree.java" />
         <option value="$PROJECT_DIR$/src/structures/Trie/Trie.java" />
         <option value="$PROJECT_DIR$/src/structures/HashTable/MapHash.java" />
         <option value="$PROJECT_DIR$/src/structures/Graph/Graph.java" />
@@ -129,6 +172,8 @@
         <option value="$PROJECT_DIR$/src/JsonObjects/JsonInteraction.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Menu.java" />
+        <option value="$PROJECT_DIR$/src/structures/AVLTree/NodeAVL.java" />
+        <option value="$PROJECT_DIR$/src/structures/AVLTree/AVLTree.java" />
       </list>
     </option>
   </component>
@@ -227,6 +272,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="structures" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="projecte_PAED" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projecte_PAED" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="structures" type="462c0819:PsiDirectoryNode" />
+              <item name="AVLTree" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -237,7 +289,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556014771061" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556017901443" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/library/gson-2.8.2.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -314,12 +366,12 @@
       <workItem from="1555074638148" duration="1241000" />
       <workItem from="1555103066502" duration="1220000" />
       <workItem from="1555334398471" duration="8858000" />
-      <workItem from="1555663880180" duration="21486000" />
+      <workItem from="1555663880180" duration="23518000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54447000" />
+    <option name="totallyTimeSpent" value="56479000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -462,13 +514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/structures/AVLTree/NodeAVL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/structures/NodeDoesntExists.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -476,22 +521,6 @@
           <folding>
             <element signature="e#199#200#0" expanded="true" />
             <element signature="e#229#230#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/structures/AVLTree/AVLTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="107" column="41" selection-start-line="107" selection-start-column="41" selection-end-line="107" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#346#347#0" expanded="true" />
-            <element signature="e#384#385#0" expanded="true" />
-            <element signature="e#5243#5244#0" expanded="true" />
-            <element signature="e#5270#5271#0" expanded="true" />
-            <element signature="e#5311#5312#0" expanded="true" />
-            <element signature="e#5343#5344#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -673,7 +702,56 @@
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+          <caret line="1" column="27" lean-forward="true" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/structures/AVLTree/NodeAVL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
+          <folding>
+            <element signature="e#644#645#0" expanded="true" />
+            <element signature="e#670#671#0" expanded="true" />
+            <element signature="e#705#706#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
+            <element signature="e#794#795#0" expanded="true" />
+            <element signature="e#835#836#0" expanded="true" />
+            <element signature="e#871#872#0" expanded="true" />
+            <element signature="e#904#905#0" expanded="true" />
+            <element signature="e#932#933#0" expanded="true" />
+            <element signature="e#975#976#0" expanded="true" />
+            <element signature="e#1009#1010#0" expanded="true" />
+            <element signature="e#1041#1042#0" expanded="true" />
+            <element signature="e#1068#1069#0" expanded="true" />
+            <element signature="e#1109#1110#0" expanded="true" />
+            <element signature="e#1141#1142#0" expanded="true" />
+            <element signature="e#1175#1176#0" expanded="true" />
+            <element signature="e#1204#1205#0" expanded="true" />
+            <element signature="e#1249#1250#0" expanded="true" />
+            <element signature="e#1285#1286#0" expanded="true" />
+            <element signature="e#1318#1319#0" expanded="true" />
+            <element signature="e#1347#1348#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/structures/AVLTree/AVLTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="205" column="79" selection-start-line="205" selection-start-column="79" selection-end-line="205" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#665#666#0" expanded="true" />
+            <element signature="e#706#707#0" expanded="true" />
+            <element signature="e#8637#8638#0" expanded="true" />
+            <element signature="e#8664#8665#0" expanded="true" />
+            <element signature="e#8705#8706#0" expanded="true" />
+            <element signature="e#8737#8738#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
