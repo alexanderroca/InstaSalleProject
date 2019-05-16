@@ -1,7 +1,7 @@
 package structures.HashTable;
+import JsonObjects.Objects.Post;
+import JsonObjects.Objects.User;
 import structures.MyArrayList.MyArrayList;
-
-import java.util.ArrayList;
 
 public class MapHash<K,V> {
     private MyArrayList<NodeHash<K,V>> array;
@@ -101,5 +101,35 @@ public class MapHash<K,V> {
             array.set(index, node.getNext());
 
         return true;
+    }
+
+    public void displayUsers(){
+        for(int i = 0; i < array.getSize(); i++){
+
+            try {
+                NodeHash aux = array.get(i);
+                while (aux != null) {
+                    if(aux.getValue() instanceof User) {
+                        System.out.println(((User) aux.getValue()).getUsername());
+                        aux = aux.getNext();
+                    }   //if
+                }   //while
+            } catch(NullPointerException e){}
+        }   //for
+    }
+
+    public void displayPosts(){
+        for(int i = 0; i < array.getSize(); i++){
+
+            try {
+                NodeHash aux = array.get(i);
+                while (aux != null) {
+                    if(aux.getValue() instanceof Post) {
+                        System.out.println(((Post) aux.getValue()).getId());
+                        aux = aux.getNext();
+                    }   //if
+                }   //while
+            } catch(NullPointerException e){}
+        }   //for
     }
 }

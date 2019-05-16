@@ -254,7 +254,7 @@ public class Menu {
 
             for (int i = 0; i < users.length; i++){
                 avlTreePost.insert_T(users[i].getUsername().hashCode(), users[i]);
-                mapHashPost.add(users[i].getUsername().hashCode(), users[i]);
+                mapHashPost.add(posts[i].getId(), posts[i]);
             }   //for
 
             System.out.println("Importacio de Posts completada");
@@ -275,7 +275,6 @@ public class Menu {
         if(estructura.equals("p") || estructura.equals("u")) {
             switch (opcio) {
                 case "3":
-                    //TODO: Visualitzacio
                     graph.display();
                     break;
                 case "4":
@@ -351,6 +350,11 @@ public class Menu {
             switch (opcio) {
                 case "3":
                     //TODO: Visualitzacio
+                    System.out.println("\nUsers:");
+                    mapHashUser.displayUsers();
+                    System.out.println("\nPost:");
+                    mapHashPost.displayPosts();
+                    System.out.println();
                     break;
                 case "4":
                     Object obj = elementPerInserir(estructura);
