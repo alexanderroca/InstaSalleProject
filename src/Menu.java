@@ -162,6 +162,7 @@ public class Menu {
                     break;
                 case "4":
                     //TODO: Taula Hash
+                    hashTableOption(opcio);
                     break;
                 case "5":
                     //TODO: Graf
@@ -265,6 +266,80 @@ public class Menu {
         System.out.println();
     }
 
+    public void hashTableOption(String opcio){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Seleccion-hi sobre quina estructura vol actuar -> Post/User (p/u)");
+        System.out.print("Opcio: ");
+        String estructura = sc.nextLine();
+
+        if(estructura.equals("p") || estructura.equals("u")) {
+            switch (opcio) {
+                case "3":
+                    //TODO: Visualitzacio
+                    break;
+                case "4":
+                    Object obj = elementPerInserir(estructura);
+                    boolean result_insert = false;
+                    if(obj instanceof User) {
+                        mapHashUser.add(((User) obj).getUsername().hashCode(), obj);
+                        result_insert = true;
+                    }   //if
+                    else if(obj instanceof Post) {
+                        mapHashPost.add(((Post) obj).getId(), obj);
+                        result_insert = true;
+                    }   //else-if
+                    if(result_insert)
+                        mostrarExit();
+                    else
+                        mostrarError();
+                    break;
+                case "5":
+                    boolean result_delete = false;
+                    if(estructura.equals("u")){
+                        Scanner sc_delete = new Scanner(System.in);
+                        System.out.print("Usuari: ");
+                        String userToDelete = sc_delete.nextLine();
+                        result_delete = mapHashUser.remove(userToDelete.hashCode());
+                    }   //if
+                    else if(estructura.equals("p")){
+                        Scanner sc_search = new Scanner(System.in);
+                        System.out.print("Post: ");
+                        int postToDelete = sc_search.nextInt();
+                        result_delete = mapHashPost.remove(postToDelete);
+                    }   //else-if
+                    if(result_delete)
+                        mostrarExit();
+                    else
+                        mostrarError();
+                    break;
+                case "6":
+                    if(estructura.equals("u")){
+                        Scanner sc_search = new Scanner(System.in);
+                        System.out.print("Usuari: ");
+                        String userToSearch = sc_search.nextLine();
+                        User user_found = (User) mapHashUser.get(userToSearch.hashCode());
+                        if(user_found != null)
+                            mostrarExit();
+                        else
+                            mostrarError();
+                    }   //if
+                    else if(estructura.equals("p")){
+                        Scanner sc_search = new Scanner(System.in);
+                        System.out.print("Post: ");
+                        int postToSearch = sc_search.nextInt();
+                        Post post_found = (Post) mapHashPost.get(postToSearch);
+                        if(post_found != null)
+                            mostrarExit();
+                        else
+                            mostrarError();
+                    }   //else-if
+                    break;
+            }   //switch
+        }   //if
+        else
+            mostrarError();
+    }
+
     public void avlOption(String opcio){
         Scanner sc = new Scanner(System.in);
         System.out.println("Seleccion-hi sobre quina estructura vol actuar -> Post/User (p/u)");
@@ -295,10 +370,25 @@ public class Menu {
                         mostrarError();
                     break;
                 case "5":
-                    //TODO: Esborra
+                    boolean result_delete = false;
+                    if(estructura.equals("u")){
+                        Scanner sc_delete = new Scanner(System.in);
+                        System.out.print("Usuari: ");
+                        String userToDelete = sc_delete.nextLine();
+                        result_delete = avlTreeUser.remove_T(userToDelete.hashCode());
+                    }   //if
+                    else if(estructura.equals("p")){
+                        Scanner sc_search = new Scanner(System.in);
+                        System.out.print("Post: ");
+                        int postToDelete = sc_search.nextInt();
+                        result_delete = avlTreePost.remove_T(postToDelete);
+                    }   //else-if
+                    if (result_delete)
+                        mostrarExit();
+                    else
+                        mostrarError();
                     break;
                 case "6":
-                    //TODO: Cerca
                     if(estructura.equals("u")){
                         Scanner sc_search = new Scanner(System.in);
                         System.out.print("Usuari: ");
