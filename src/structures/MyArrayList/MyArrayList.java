@@ -83,12 +83,13 @@ public class MyArrayList<E> {
 
     /**
      * Procediment que elimina tots els elements l'estructura
-     * @param elements : Array d'Object
      */
-    public void removeAll(MyArrayList elements){
+    public void removeAll(){
 
-        for(int i = 0; i < elements.getSize(); i++)
-            remove(elements.get(0));
+        for(int i = 0; i < objects.length; i++)
+            objects[i] = null;
+
+        System.out.println("HERE");
     }
 
     /**

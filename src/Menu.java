@@ -1,4 +1,10 @@
+import JsonObjects.Objects.Post;
+import JsonObjects.Objects.User;
+
+import java.io.File;
 import java.util.Scanner;
+
+import static JsonObjects.Objects.TransferToMyArrayList.transferInfoToMyArraylist;
 
 /**
  * Classe que conte tots els menus del programa
@@ -6,6 +12,11 @@ import java.util.Scanner;
  * @version 0.1
  */
 public class Menu {
+
+    User[] users;
+    Post[] posts;
+
+    public final String DIRECTORY = "jsons";
 
     /**
      * Procediment que mostra el menu principal del programa
@@ -32,7 +43,8 @@ public class Menu {
 
             switch (opcio){
                 case "1":
-                    //TODO: Importacio
+                    importacioUsers();
+                    importacioPosts();
                     break;
                 case "2":
                     //TODO: Exportacio
@@ -135,6 +147,70 @@ public class Menu {
             }   //switch
         }   //while
     }
+
+    public String fileSelected(){
+        Scanner sc = new Scanner(System.in);
+
+        File dir = new File(DIRECTORY);
+        String[] list = dir.list();
+
+        if(list == null || list.length == 0)
+            System.out.println("No hi ha elements dins de la carpeta actual");
+        else {
+            int opcio = -1;
+
+            while (opcio < 0 || opcio > list.length) {
+                System.out.println("Seleccioni el fitxer:");
+                for (int i = 0; i < list.length; i++)
+                    System.out.println(i + "- " + list[i]);
+
+                System.out.print("Opcio: ");
+                opcio = sc.nextInt();
+
+                if (opcio < 0 || opcio > list.length)
+                    mostrarError();
+            }   //while
+
+            return DIRECTORY + "/" + list[opcio];
+        }   //else
+
+        return null;
+    }
+
+    public void importacioUsers(){
+
+        System.out.println("Seleccion-hi un fitxer d'usuaris:");
+
+        String path = fileSelected();
+
+        if(path.contains("user")) {
+
+            User aux = new User();
+            users = (User[]) aux.deserializeJSON(path);
+            transferInfoToMyArraylist(users);
+        }   //if
+        else
+            mostrarError();
+
+        System.out.println("HERE");
+    }
+
+    public void importacioPosts(){
+
+        System.out.println("Seleccion-hi un fitxer de posts:");
+
+        String path = fileSelected();
+
+        if(path.contains("post")) {
+
+            Post aux2 = new Post();
+            Post[] posts = (Post[]) aux2.deserializeJSON(path);
+            transferInfoToMyArraylist(posts);
+        }   //if
+        else
+            mostrarError();
+    }
+
 
     /**
      * Procediment per mostrar un missatge d'error

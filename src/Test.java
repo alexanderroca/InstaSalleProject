@@ -31,11 +31,14 @@ public class Test {
         MapHash mapHash = new MapHash(users.length);
         Trie trie = new Trie();
 
+        double[] coords = {-100000, -100000, 100000, 100000};
+
         for (int i = 0; i < users.length; i++){
             avlTree.insert_T(users[i].getUsername().hashCode(), users[i]);
             mapHash.add(users[i].getUsername().hashCode(), users[i]);
             trie.insert(users[i].getUsername());
         }   //for
+
 
         boolean test = graph.remove(null, 1);
 
