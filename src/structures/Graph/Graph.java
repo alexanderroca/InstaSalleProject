@@ -204,4 +204,14 @@ public class Graph {
 
         return false;
     }
+
+    public void display(){
+        System.out.println("\nUsuaris :");
+        for(int i = 0; i < users.getSize(); i++)
+            System.out.println(users.get(i).getUsername());
+        System.out.println("\nPosts :");
+        for(int i = 0; i < posts.getSize(); i++)
+            System.out.println(posts.get(i).getId());
+        System.out.println();
+    }
 }

@@ -41,9 +41,9 @@ public class Test {
 
         trie.remove_T("alexander.roca");
 
-        boolean test = graph.remove(null, 1);
+        boolean test = graph.remove("marc.cespedes", 1);
 
-        String name = "alexander.roca";
+        String name = "marc.cespedes";
         User user = (User) mapHash.get(name.hashCode());
 
         mapHash.remove(name.hashCode());

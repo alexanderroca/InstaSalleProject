@@ -157,15 +157,14 @@ public class Menu {
                     //TODO: R-Tree
                     break;
                 case "3":
-                    //TODO: AVL Tree or Red Black Tree
                     avlOption(opcio);
                     break;
                 case "4":
-                    //TODO: Taula Hash
                     hashTableOption(opcio);
                     break;
                 case "5":
                     //TODO: Graf
+                    graphOption(opcio);
                     break;
                 case "6":
                     done = true;
@@ -264,6 +263,82 @@ public class Menu {
             mostrarError();
 
         System.out.println();
+    }
+
+    public void graphOption(String opcio){
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Seleccion-hi sobre quina estructura vol actuar -> Post/User (p/u)");
+        System.out.print("Opcio: ");
+        String estructura = sc.nextLine();
+
+        if(estructura.equals("p") || estructura.equals("u")) {
+            switch (opcio) {
+                case "3":
+                    //TODO: Visualitzacio
+                    graph.display();
+                    break;
+                case "4":
+                    Object obj = elementPerInserir(estructura);
+                    boolean result_insert = false;
+                    if(obj instanceof User) {
+                        graph.insert(obj);
+                        result_insert = true;
+                    }   //if
+                    else if(obj instanceof Post) {
+                        graph.insert(obj);
+                        result_insert = true;
+                    }   //else-if
+                    if(result_insert)
+                        mostrarExit();
+                    else
+                        mostrarError();
+                    break;
+                case "5":
+                    boolean result_delete = false;
+                    if(estructura.equals("u")){
+                        Scanner sc_delete = new Scanner(System.in);
+                        System.out.print("Usuari: ");
+                        String userToDelete = sc_delete.nextLine();
+                        result_delete = graph.remove(userToDelete, -1);
+                    }   //if
+                    else if(estructura.equals("p")){
+                        Scanner sc_search = new Scanner(System.in);
+                        System.out.print("Post: ");
+                        int postToDelete = sc_search.nextInt();
+                        result_delete = graph.remove(null, postToDelete);
+                    }   //else-if
+                    if(result_delete)
+                        mostrarExit();
+                    else
+                        mostrarError();
+                    break;
+                case "6":
+                    if(estructura.equals("u")){
+                        Scanner sc_search = new Scanner(System.in);
+                        System.out.print("Usuari: ");
+                        String userToSearch = sc_search.nextLine();
+                        User user_found = (User) graph.get(userToSearch, -1);
+                        if(user_found != null)
+                            mostrarExit();
+                        else
+                            mostrarError();
+                    }   //if
+                    else if(estructura.equals("p")){
+                        Scanner sc_search = new Scanner(System.in);
+                        System.out.print("Post: ");
+                        int postToSearch = sc_search.nextInt();
+                        Post post_found = (Post) graph.get(null, postToSearch);
+                        if(post_found != null)
+                            mostrarExit();
+                        else
+                            mostrarError();
+                    }   //else-if
+                    break;
+            }   //switch
+        }   //if
+        else
+            mostrarError();
     }
 
     public void hashTableOption(String opcio){
