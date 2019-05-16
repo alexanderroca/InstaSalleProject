@@ -39,6 +39,7 @@ public class Test {
             trie.insert(users[i].getUsername());
         }   //for
 
+        trie.remove_T("alexander.roca");
 
         boolean test = graph.remove(null, 1);
 

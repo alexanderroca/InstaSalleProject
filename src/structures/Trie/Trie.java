@@ -29,7 +29,7 @@ public class Trie {
         actual.setEndOfWord(true);      // Last Node as leaf
     }
 
-    public boolean search(String key){
+    public boolean search(String key) throws NullPointerException{
         int lvl, lenght = key.length(), index;
 
         boolean found = true;

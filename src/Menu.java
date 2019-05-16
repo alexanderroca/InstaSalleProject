@@ -1,12 +1,18 @@
 import JsonObjects.Objects.Post;
 import JsonObjects.Objects.User;
 import structures.AVLTree.AVLTree;
+import structures.AVLTree.NodeAVL;
 import structures.Graph.Graph;
 import structures.HashTable.MapHash;
+import structures.MyArrayList.MyArrayList;
 import structures.Trie.Trie;
 
 import java.io.File;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import java.util.Vector;
 
 import static JsonObjects.Objects.TransferToMyArrayList.transferInfoToMyArraylist;
 
@@ -18,17 +24,19 @@ import static JsonObjects.Objects.TransferToMyArrayList.transferInfoToMyArraylis
 public class Menu {
 
     //Classes del json
-    User[] users;
-    Post[] posts;
+    public User[] users;
+    public Post[] posts;
 
     //Classes de les estructures
-    Graph graph;
-    AVLTree avlTreeUser;
-    MapHash mapHashUser;
-    Trie trieUser;
-    AVLTree avlTreePost;
-    MapHash mapHashPost;
-    Trie triePost;
+    public Graph graph;
+    public Trie trie;
+    public AVLTree avlTreeUser;
+    public MapHash mapHashUser;
+    public AVLTree avlTreePost;
+    public MapHash mapHashPost;
+
+    public static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+
 
     private final String DIRECTORY = "jsons";
 
@@ -136,24 +144,30 @@ public class Menu {
             System.out.println("\t3- AVL Tree/Red Black Tree");
             System.out.println("\t4- Taula de Hash");
             System.out.println("\t5- Graph");
+            System.out.println("\t6- Tornar al menu principal");
             System.out.print("> ");
             String sub_opcio = sc.nextLine();
 
             switch (sub_opcio){
                 case "1":
                     //TODO: Trie
+                    trieOption(opcio);
                     break;
                 case "2":
                     //TODO: R-Tree
                     break;
                 case "3":
                     //TODO: AVL Tree or Red Black Tree
+                    avlOption(opcio);
                     break;
                 case "4":
                     //TODO: Taula Hash
                     break;
                 case "5":
                     //TODO: Graf
+                    break;
+                case "6":
+                    done = true;
                     break;
                     default:
                         mostrarError();
@@ -205,7 +219,13 @@ public class Menu {
 
             avlTreeUser = new AVLTree();
             mapHashUser = new MapHash(users.length);
-            trieUser = new Trie();
+            trie = new Trie();
+
+            for (int i = 0; i < users.length; i++){
+                avlTreeUser.insert_T(users[i].getUsername().hashCode(), users[i]);
+                mapHashUser.add(users[i].getUsername().hashCode(), users[i]);
+                trie.insert(users[i].getUsername());
+            }   //for
 
             System.out.println("Importacio de Users completada");
 
@@ -231,7 +251,11 @@ public class Menu {
             graph = new Graph(users, posts);
             avlTreePost = new AVLTree();
             mapHashPost = new MapHash(posts.length);
-            triePost = new Trie();
+
+            for (int i = 0; i < users.length; i++){
+                avlTreePost.insert_T(users[i].getUsername().hashCode(), users[i]);
+                mapHashPost.add(users[i].getUsername().hashCode(), users[i]);
+            }   //for
 
             System.out.println("Importacio de Posts completada");
         }   //if
@@ -241,11 +265,176 @@ public class Menu {
         System.out.println();
     }
 
+    public void avlOption(String opcio){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Seleccion-hi sobre quina estructura vol actuar -> Post/User (p/u)");
+        System.out.print("Opcio: ");
+        String estructura = sc.nextLine();
+
+        if(estructura.equals("p") || estructura.equals("u")) {
+            switch (opcio) {
+                case "3":
+                    System.out.println("\nUsers:");
+                    avlTreeUser.inOrder(avlTreeUser.getRoot());
+                    System.out.println("\nPosts:");
+                    avlTreePost.inOrder(avlTreePost.getRoot());
+                    System.out.println();
+                    break;
+                case "4":
+                    Object obj = elementPerInserir(estructura);
+                    boolean result_insert = false;
+                    if(obj instanceof User) {
+                       result_insert = avlTreeUser.insert_T(((User) obj).getUsername().hashCode(), obj);
+                    }   //if
+                    else if(obj instanceof Post) {
+                        result_insert = avlTreePost.insert_T(((Post) obj).getId(), obj);
+                    }   //else-if
+                    if(result_insert)
+                        mostrarExit();
+                    else
+                        mostrarError();
+                    break;
+                case "5":
+                    //TODO: Esborra
+                    break;
+                case "6":
+                    //TODO: Cerca
+                    if(estructura.equals("u")){
+                        Scanner sc_search = new Scanner(System.in);
+                        System.out.print("Usuari: ");
+                        String userToSearch = sc_search.nextLine();
+                        NodeAVL user_found = avlTreeUser.search(avlTreeUser.getRoot(), userToSearch.hashCode());
+                        if(user_found != null)
+                            mostrarExit();
+                        else
+                            mostrarError();
+                    }   //if
+                    else if(estructura.equals("p")){
+                        Scanner sc_search = new Scanner(System.in);
+                        System.out.print("Post: ");
+                        int postToSearch = sc_search.nextInt();
+                        NodeAVL post_found = avlTreePost.search(avlTreePost.getRoot(), postToSearch);
+                        if(post_found != null)
+                            mostrarExit();
+                        else
+                            mostrarError();
+                    }   //else-if
+                    break;
+            }   //switch
+        }   //if
+        else
+            mostrarError();
+    }
+
+    public void trieOption(String opcio){
+
+        switch (opcio) {
+            case "3":
+                //TODO: Visualitzacio
+                break;
+            case "4":
+                 User user = (User) elementPerInserir("u");
+                 trie.insert(user.getUsername());
+                 mostrarExit();
+                break;
+            case "5":
+                Scanner sc_delete = new Scanner(System.in);
+                System.out.print("Usuari: ");
+                String userToDelete = sc_delete.nextLine();
+                trie.remove_T(userToDelete);
+                break;
+            case "6":
+                Scanner sc_search = new Scanner(System.in);
+                System.out.print("Usuari: ");
+                String userToSearch = sc_search.nextLine();
+                 boolean result_search = trie.search(userToSearch);
+                 if(result_search)
+                     mostrarExit();
+                 else
+                     mostrarError();
+                break;
+        }   //switch
+    }
+
+    public User createNewUser(){
+        User new_user = new User();
+
+        Scanner sc = new Scanner(System.in);
+
+        LocalDateTime now = LocalDateTime.now();
+        Timestamp timestamp = Timestamp.valueOf(now);
+        new_user.setCreation(timestamp.getTime());
+
+        System.out.print("Usuari: ");
+        String publicador = sc.nextLine();
+        new_user.setUsername(publicador);
+
+        return new_user;
+    }
+
+    public Post createNewPost(){
+
+        Post new_post = new Post();
+
+        Scanner sc = new Scanner(System.in);
+
+        new_post.setId((posts[posts.length - 1].getId()) + 1);
+
+        LocalDateTime now = LocalDateTime.now();
+        Timestamp timestamp = Timestamp.valueOf(now);
+        new_post.setPublished_when(timestamp.getTime());
+
+        System.out.print("Publicat per: ");
+        String publicador = sc.nextLine();
+        new_post.setPublished_by(publicador);
+
+        Vector coords = new Vector();
+
+        System.out.println("Localitzacio: ");
+        System.out.print("\tX -> ");
+        double x = sc.nextDouble();
+        coords.add(x);
+        System.out.print("\tY -> ");
+        double y = sc.nextDouble();
+        coords.add(y);
+        new_post.setLocation(coords);
+
+        sc.nextLine();
+
+        System.out.println("Hashtags: (Per parar d'inserir hashtags escriu -> esc)");
+        int count = 1;
+        MyArrayList hashtags = new MyArrayList(5);
+        String hashtag_name;
+        do{
+            System.out.print("\t" + count + "- ");
+            hashtag_name = sc.nextLine();
+            hashtags.add(hashtag_name);
+            count++;
+        } while(!hashtag_name.equals("esc"));   //do-while
+        hashtags.remove(hashtags.get(hashtags.getSize() - 1));
+        new_post.setMy_hashtags(hashtags);
+
+        return new_post;
+    }
+
+    public Object elementPerInserir(String estructura){
+
+        if(estructura.equals("p"))
+            return createNewPost();
+        else if(estructura.equals("u"))
+            return createNewUser();
+
+        return null;
+    }
 
     /**
      * Procediment per mostrar un missatge d'error
      */
    public void mostrarError(){
        System.out.println("\nError, opcio incorrecta\n");
+   }
+
+   public void mostrarExit(){
+       System.out.println("\nEl proces s'ha realitzat correctament\n");
    }
 }

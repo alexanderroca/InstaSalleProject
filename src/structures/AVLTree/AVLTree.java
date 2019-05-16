@@ -1,5 +1,7 @@
 package structures.AVLTree;
 
+import JsonObjects.Objects.Post;
+import JsonObjects.Objects.User;
 import structures.NodeAlreadyExists;
 import structures.NodeDoesntExists;
 
@@ -65,7 +67,11 @@ public class AVLTree{
         if(n == null)
             return;
         inOrder(n.getLeft());
-        System.out.print(n.getKey() + " ");
+        if(n.getObject() instanceof User) {
+            System.out.println(((User) n.getObject()).getUsername());
+        }
+        else if(n.getObject() instanceof Post)
+            System.out.println(((Post) n.getObject()).getId());
         inOrder(n.getRight());
     }
 
@@ -149,6 +155,18 @@ public class AVLTree{
             System.out.println(nodeDoesntExists.getMessage() + key);
             return false;
         }
+    }
+
+    public NodeAVL search(NodeAVL n, int key){
+
+        if(n == null)
+            return null;
+        else if(key < n.getKey())
+            return search(n.getLeft(), key);
+        else if(key > n.getKey())
+            return search(n.getRight(), key);
+        else
+            return n;
     }
 
     /**
