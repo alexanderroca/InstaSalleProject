@@ -14,6 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.Vector;
 
+import static JsonObjects.Objects.TransferToMyArrayList.transferInfoToArrayList;
 import static JsonObjects.Objects.TransferToMyArrayList.transferInfoToMyArraylist;
 
 /**
@@ -70,21 +71,30 @@ public class Menu {
                     break;
                 case "2":
                     //TODO: Exportacio
+                    if(graph != null){
+
+                        Scanner sc_export = new Scanner(System.in);
+                        System.out.print("Nom del JSON: ");
+                        String path = sc_export.nextLine();
+
+                        User aux = new User();
+                        aux.serializeJSON(transferInfoToArrayList(graph.getUsers()), path + "_users");
+
+                        Post aux_post = new Post();
+                        aux_post.serializeJSON(transferInfoToArrayList(graph.getPosts()), path + "_posts");
+                    }   //if
                     break;
                 case "3":
                     //TODO: Visualitzacio
                     subMenuPrincipal(opcio);
                     break;
                 case "4":
-                    //TODO: Insercio
                     subMenuPrincipal(opcio);
                     break;
                 case "5":
-                    //TODO: Esborra
                     subMenuPrincipal(opcio);
                     break;
                 case "6":
-                    //TODO: Cerca
                     subMenuPrincipal(opcio);
                     break;
                 case "7":
@@ -163,7 +173,6 @@ public class Menu {
                     hashTableOption(opcio);
                     break;
                 case "5":
-                    //TODO: Graf
                     graphOption(opcio);
                     break;
                 case "6":
@@ -349,7 +358,6 @@ public class Menu {
         if(estructura.equals("p") || estructura.equals("u")) {
             switch (opcio) {
                 case "3":
-                    //TODO: Visualitzacio
                     System.out.println("\nUsers:");
                     mapHashUser.displayUsers();
                     System.out.println("\nPost:");

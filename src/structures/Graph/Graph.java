@@ -214,4 +214,20 @@ public class Graph {
             System.out.println(posts.get(i).getId());
         System.out.println();
     }
+
+    public MyArrayList<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(MyArrayList<User> users) {
+        this.users = users;
+    }
+
+    public MyArrayList<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(MyArrayList<Post> posts) {
+        this.posts = posts;
+    }
 }
