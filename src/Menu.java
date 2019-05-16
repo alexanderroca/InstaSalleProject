@@ -1,5 +1,9 @@
 import JsonObjects.Objects.Post;
 import JsonObjects.Objects.User;
+import structures.AVLTree.AVLTree;
+import structures.Graph.Graph;
+import structures.HashTable.MapHash;
+import structures.Trie.Trie;
 
 import java.io.File;
 import java.util.Scanner;
@@ -13,10 +17,20 @@ import static JsonObjects.Objects.TransferToMyArrayList.transferInfoToMyArraylis
  */
 public class Menu {
 
+    //Classes del json
     User[] users;
     Post[] posts;
 
-    public final String DIRECTORY = "jsons";
+    //Classes de les estructures
+    Graph graph;
+    AVLTree avlTreeUser;
+    MapHash mapHashUser;
+    Trie trieUser;
+    AVLTree avlTreePost;
+    MapHash mapHashPost;
+    Trie triePost;
+
+    private final String DIRECTORY = "jsons";
 
     /**
      * Procediment que mostra el menu principal del programa
@@ -188,11 +202,18 @@ public class Menu {
             User aux = new User();
             users = (User[]) aux.deserializeJSON(path);
             transferInfoToMyArraylist(users);
+
+            avlTreeUser = new AVLTree();
+            mapHashUser = new MapHash(users.length);
+            trieUser = new Trie();
+
+            System.out.println("Importacio de Users completada");
+
         }   //if
         else
             mostrarError();
 
-        System.out.println("HERE");
+        System.out.println();
     }
 
     public void importacioPosts(){
@@ -204,11 +225,20 @@ public class Menu {
         if(path.contains("post")) {
 
             Post aux2 = new Post();
-            Post[] posts = (Post[]) aux2.deserializeJSON(path);
+            posts = (Post[]) aux2.deserializeJSON(path);
             transferInfoToMyArraylist(posts);
+
+            graph = new Graph(users, posts);
+            avlTreePost = new AVLTree();
+            mapHashPost = new MapHash(posts.length);
+            triePost = new Trie();
+
+            System.out.println("Importacio de Posts completada");
         }   //if
         else
             mostrarError();
+
+        System.out.println();
     }
 
 
