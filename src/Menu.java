@@ -70,19 +70,7 @@ public class Menu {
                     importacioPosts();
                     break;
                 case "2":
-                    //TODO: Exportacio
-                    if(graph != null){
-
-                        Scanner sc_export = new Scanner(System.in);
-                        System.out.print("Nom del JSON: ");
-                        String path = sc_export.nextLine();
-
-                        User aux = new User();
-                        aux.serializeJSON(transferInfoToArrayList(graph.getUsers()), path + "_users");
-
-                        Post aux_post = new Post();
-                        aux_post.serializeJSON(transferInfoToArrayList(graph.getPosts()), path + "_posts");
-                    }   //if
+                    export();
                     break;
                 case "3":
                     //TODO: Visualitzacio
@@ -112,6 +100,22 @@ public class Menu {
 
         }   //while
         System.out.println("\nGRACIES PER USAR EL NOSTRE PROGRAMA");
+    }
+
+    public void export(){
+        if(graph != null){
+
+            Scanner sc_export = new Scanner(System.in);
+            System.out.print("Nom del JSON: ");
+            String path = sc_export.nextLine();
+
+            User aux = new User();
+            aux.serializeJSON(transferInfoToArrayList(graph.getUsers()), path + "_users");
+
+            Post aux_post = new Post();
+            aux_post.serializeJSON(transferInfoToArrayList(graph.getPosts()), path + "_posts");
+        }   //if
+
     }
 
     /**
