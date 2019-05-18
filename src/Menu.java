@@ -128,18 +128,23 @@ public class Menu {
         //TODO: Cercar per la hastable -> Millor estructura per cercar
     }
 
+    public String path(){
+        Scanner sc_export = new Scanner(System.in);
+        System.out.print("\t->Nom del JSON: ");
+        return sc_export.nextLine();
+    }
+
     public void export(){
         if(graph != null){
+            System.out.println("Graf:");
 
-            Scanner sc_export = new Scanner(System.in);
-            System.out.print("Nom del JSON: ");
-            String path = sc_export.nextLine();
+            String path = path();
 
             User aux = new User();
-            aux.serializeJSON(transferInfoToArrayList(graph.getUsers()), path + "_users");
+            aux.serializeJSON(transferInfoToArrayList(graph.getUsers()), path + "_users_graph");
 
             Post aux_post = new Post();
-            aux_post.serializeJSON(transferInfoToArrayList(graph.getPosts()), path + "_posts");
+            aux_post.serializeJSON(transferInfoToArrayList(graph.getPosts()), path + "_posts_graph");
         }   //if
 
     }
@@ -190,7 +195,6 @@ public class Menu {
 
             switch (sub_opcio){
                 case "1":
-                    //TODO: Trie
                     trieOption(opcio);
                     break;
                 case "2":
@@ -537,7 +541,10 @@ public class Menu {
 
         switch (opcio) {
             case "3":
-                //TODO: Visualitzacio
+                trie.suggerationsTrie("");
+                for(int i = 0; i < trie.getPossible_words().getSize(); i++)
+                    System.out.println((i + 1) + "- " + trie.getPossible_words().get(i));
+                System.out.println();
                 break;
             case "4":
                  User user = (User) elementPerInserir("u");
