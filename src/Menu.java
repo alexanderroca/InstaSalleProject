@@ -102,6 +102,10 @@ public class Menu {
         System.out.println("\nGRACIES PER USAR EL NOSTRE PROGRAMA");
     }
 
+    public void autocomplete(){
+        //Scanner
+    }
+
     public void export(){
         if(graph != null){
 

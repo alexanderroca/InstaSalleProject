@@ -41,15 +41,13 @@ public class Trie {
         TrieNode actual = root;
 
         for(lvl = 0; lvl < prefix.length(); lvl++){
-            if(prefix.charAt(lvl) >= 'A' && prefix.charAt(lvl) <= 'Z' )
-                index = prefix.charAt(lvl) - 'A' + 'a';
-            else
-                index = prefix.charAt(lvl);
 
-            if(actual.getSons()[index] == null)
+            index = prefix.charAt(lvl);
+
+            if(actual == null || actual.getSons()[index] == null)
                 found = false;
-
-            actual = actual.getSons()[index];
+            else
+                actual = actual.getSons()[index];
         }   //for
 
         if(!found)

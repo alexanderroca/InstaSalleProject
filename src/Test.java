@@ -50,7 +50,7 @@ public class Test {
 
         MyArrayList words = new MyArrayList(1);
 
-        trie.suggerationsTrie("ale");
+        trie.suggerationsTrie("Pepito");
         MyArrayList possible_words = trie.getPossible_words();
 
         boolean test = graph.remove("marc.cespedes", 1);
