@@ -38,6 +38,7 @@ public class Menu {
 
     public static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 
+    private int limit_memoria = 20;
 
     private final String DIRECTORY = "jsons";
 
@@ -70,19 +71,7 @@ public class Menu {
                     importacioPosts();
                     break;
                 case "2":
-                    //TODO: Exportacio
-                    if(graph != null){
-
-                        Scanner sc_export = new Scanner(System.in);
-                        System.out.print("Nom del JSON: ");
-                        String path = sc_export.nextLine();
-
-                        User aux = new User();
-                        aux.serializeJSON(transferInfoToArrayList(graph.getUsers()), path + "_users");
-
-                        Post aux_post = new Post();
-                        aux_post.serializeJSON(transferInfoToArrayList(graph.getPosts()), path + "_posts");
-                    }   //if
+                    export();
                     break;
                 case "3":
                     //TODO: Visualitzacio
@@ -98,10 +87,10 @@ public class Menu {
                     subMenuPrincipal(opcio);
                     break;
                 case "7":
-                    //TODO: Autocompletar
+                    autocomplete();
                     break;
                 case "8":
-                    //TODO: Limitar memoria per autocompletar
+                    memoryLimit();
                     break;
                 case "9":
                     break;
@@ -112,6 +101,52 @@ public class Menu {
 
         }   //while
         System.out.println("\nGRACIES PER USAR EL NOSTRE PROGRAMA");
+    }
+
+    public void memoryLimit(){
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Limitar memoria per autocompletar\nActualment el limit es troba a [" + limit_memoria + "] " +
+                "paraules\nQuin vol que sigui el nou limit?");
+        System.out.print("> ");
+        limit_memoria = sc.nextInt();
+        System.out.println("Processant peticio...\n");
+        System.out.println("El limit de paraules s'ha actualitzat a [" + limit_memoria + "] paraules");
+    }
+
+    public void autocomplete(){
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Insereix paraula: ");
+        String word = sc.nextLine();
+
+        trie.suggerationsTrie(word);
+
+        for(int i = 0; i < limit_memoria; i++)
+            System.out.println((i + 1) + "- " + trie.getPossible_words().get(i));
+
+        //TODO: Cercar per la hastable -> Millor estructura per cercar
+    }
+
+    public String path(){
+        Scanner sc_export = new Scanner(System.in);
+        System.out.print("\t->Nom del JSON: ");
+        return sc_export.nextLine();
+    }
+
+    public void export(){
+        if(graph != null){
+            System.out.println("Graf:");
+
+            String path = path();
+
+            User aux = new User();
+            aux.serializeJSON(transferInfoToArrayList(graph.getUsers()), path + "_users_graph");
+
+            Post aux_post = new Post();
+            aux_post.serializeJSON(transferInfoToArrayList(graph.getPosts()), path + "_posts_graph");
+        }   //if
+
     }
 
     /**
@@ -160,7 +195,6 @@ public class Menu {
 
             switch (sub_opcio){
                 case "1":
-                    //TODO: Trie
                     trieOption(opcio);
                     break;
                 case "2":
@@ -507,7 +541,10 @@ public class Menu {
 
         switch (opcio) {
             case "3":
-                //TODO: Visualitzacio
+                trie.suggerationsTrie("");
+                for(int i = 0; i < trie.getPossible_words().getSize(); i++)
+                    System.out.println((i + 1) + "- " + trie.getPossible_words().get(i));
+                System.out.println();
                 break;
             case "4":
                  User user = (User) elementPerInserir("u");

@@ -1,11 +1,15 @@
 package structures.Trie;
 
+import structures.MyArrayList.MyArrayList;
+
 public class Trie {
     public static final int MAX_CHAR = 256;
     private TrieNode root;
+    private MyArrayList possible_words;
 
     public Trie() {
         root = new TrieNode();
+        possible_words = new MyArrayList(1);
     }
 
     public void insert(String key){
@@ -27,6 +31,40 @@ public class Trie {
         }   //for
 
         actual.setEndOfWord(true);      // Last Node as leaf
+    }
+
+    public void suggerationsTrie(String prefix){
+
+        int lvl, index;
+        boolean found = true;
+
+        TrieNode actual = root;
+
+        for(lvl = 0; lvl < prefix.length(); lvl++){
+
+            index = prefix.charAt(lvl);
+
+            if(actual == null || actual.getSons()[index] == null)
+                found = false;
+            else
+                actual = actual.getSons()[index];
+        }   //for
+
+        if(!found)
+            System.out.println("No hi ha cap coincidencia amb aquest prefix");
+        else{
+            for(int i = 0; i < actual.getSons().length; i++){
+
+                if(actual.getSons()[i] != null){
+                    String word = prefix.concat(String.valueOf((char) i));
+                    suggerationsTrie(word);
+                }   //if
+            }   //for
+        }   //else
+
+        if(actual.isEndOfWord()) {
+            possible_words.add(prefix);
+        }   //if
     }
 
     public boolean search(String key) throws NullPointerException{
@@ -92,4 +130,11 @@ public class Trie {
         this.root = root;
     }
 
+    public MyArrayList getPossible_words() {
+        return possible_words;
+    }
+
+    public void setPossible_words(MyArrayList possible_words) {
+        this.possible_words = possible_words;
+    }
 }

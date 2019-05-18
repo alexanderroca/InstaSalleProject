@@ -3,6 +3,7 @@ import JsonObjects.Objects.User;
 import structures.AVLTree.AVLTree;
 import structures.Graph.Graph;
 import structures.HashTable.MapHash;
+import structures.MyArrayList.MyArrayList;
 import structures.Trie.Trie;
 
 import static JsonObjects.Objects.TransferToMyArrayList.transferInfoToMyArraylist;
@@ -31,6 +32,11 @@ public class Test {
         MapHash mapHash = new MapHash(users.length);
         Trie trie = new Trie();
 
+        MyArrayList arrayList = new MyArrayList(1);
+
+        arrayList.add(1);
+        arrayList.add(2);
+
         double[] coords = {-100000, -100000, 100000, 100000};
 
         for (int i = 0; i < users.length; i++){
@@ -39,7 +45,13 @@ public class Test {
             trie.insert(users[i].getUsername());
         }   //for
 
-        trie.remove_T("alexander.roca");
+        trie.insert("alexus");
+        trie.insert("alexis");
+
+        MyArrayList words = new MyArrayList(1);
+
+        trie.suggerationsTrie("Pepito");
+        MyArrayList possible_words = trie.getPossible_words();
 
         boolean test = graph.remove("marc.cespedes", 1);
 
