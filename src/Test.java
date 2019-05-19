@@ -4,6 +4,7 @@ import structures.AVLTree.AVLTree;
 import structures.Graph.Graph;
 import structures.HashTable.MapHash;
 import structures.MyArrayList.MyArrayList;
+import structures.RTree.RTree;
 import structures.Trie.Trie;
 
 import static JsonObjects.Objects.TransferToMyArrayList.transferInfoToMyArraylist;
@@ -32,17 +33,27 @@ public class Test {
         MapHash mapHash = new MapHash(users.length);
         Trie trie = new Trie();
 
+        double[] coords = {-10000, -10000, 10000, 10000};
+        RTree rtree = new RTree(4, coords);
+
         MyArrayList arrayList = new MyArrayList(1);
 
         arrayList.add(1);
         arrayList.add(2);
 
-        double[] coords = {-100000, -100000, 100000, 100000};
-
         for (int i = 0; i < users.length; i++){
             avlTree.insert_T(users[i].getUsername().hashCode(), users[i]);
             mapHash.add(users[i].getUsername().hashCode(), users[i]);
             trie.insert(users[i].getUsername());
+        }   //for
+
+        for(int i = 0; i < posts.length; i++) {
+            double[] coords_aux = new double[2];
+
+            coords_aux[0] = (double) posts[i].getLocation().get(0);
+            coords_aux[1] = (double) posts[i].getLocation().get(1);
+
+            rtree.insert_T(coords_aux, posts[i]);
         }   //for
 
         trie.insert("alexus");

@@ -154,15 +154,15 @@ public class Menu {
 
     public void export(){
         if(graph != null){
-            System.out.println("Graf:");
+            System.out.println("Path: ");
 
             String path = path();
 
             User aux = new User();
-            aux.serializeJSON(transferInfoToArrayList(graph.getUsers()), path + "_users_graph");
+            aux.serializeJSON(transferInfoToArrayList(graph.getUsers()), path + "_users");
 
             Post aux_post = new Post();
-            aux_post.serializeJSON(transferInfoToArrayList(graph.getPosts()), path + "_posts_graph");
+            aux_post.serializeJSON(transferInfoToArrayList(graph.getPosts()), path + "_posts");
         }   //if
 
     }

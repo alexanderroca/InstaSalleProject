@@ -89,7 +89,16 @@ public class MyArrayList<E> {
         for(int i = 0; i < objects.length; i++)
             objects[i] = null;
 
-        System.out.println("HERE");
+        size = 0;
+    }
+
+    public MyArrayList clone(){
+        MyArrayList aux = new MyArrayList(1);
+
+        for(int i = 0; i < this.getSize(); i++)
+            aux.add(this.get(i));
+
+        return aux;
     }
 
     /**
