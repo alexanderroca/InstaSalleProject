@@ -120,12 +120,30 @@ public class Menu {
         System.out.print("Insereix paraula: ");
         String word = sc.nextLine();
 
+        int aux = limit_memoria;;
+
         trie.suggerationsTrie(word);
 
-        for(int i = 0; i < limit_memoria; i++)
-            System.out.println((i + 1) + "- " + trie.getPossible_words().get(i));
+        if(trie.getPossible_words().getSize() < limit_memoria)
+            limit_memoria = trie.getPossible_words().getSize();
 
-        //TODO: Cercar per la hastable -> Millor estructura per cercar
+        int opcio = -1;
+
+        while(opcio < 0 || opcio > limit_memoria) {
+            for (int i = 0; i < limit_memoria; i++)
+                System.out.println((i + 1) + "- " + trie.getPossible_words().get(i));
+
+            System.out.print("> ");
+
+            opcio = sc.nextInt();
+
+            if (opcio < 0 || opcio > limit_memoria)
+                mostrarError();
+        }   //while
+
+        User result = (User) mapHashUser.get(trie.getPossible_words().get(opcio - 1).hashCode());
+
+        limit_memoria = aux;
     }
 
     public String path(){
