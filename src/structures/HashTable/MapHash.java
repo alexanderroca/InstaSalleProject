@@ -3,12 +3,27 @@ import JsonObjects.Objects.Post;
 import JsonObjects.Objects.User;
 import structures.MyArrayList.MyArrayList;
 
+import java.util.ArrayList;
+
+/**
+ * Classe de l'estructura HashTable
+ * @param <K> : element que actua com identificador unic
+ * @param <V> : element que sera emmagatzemat
+ * @author Alexander Roca
+ * @version 0.1
+ */
+
 public class MapHash<K,V> {
     private MyArrayList<NodeHash<K,V>> array;
     private int capacity;
     private int size;
 
     //Constructor, need a dimension for HashTable
+
+    /**
+     * Constructor per dimensionar la taula de Hash
+     * @param dimension : int
+     */
     public MapHash(int dimension){
         array = new MyArrayList<>(dimension);
         capacity = dimension;
@@ -33,7 +48,35 @@ public class MapHash<K,V> {
         return Math.abs(key.hashCode() % capacity);
     }
 
-    //Get NodeAVL of MapHash
+    public MyArrayList<V> get(String hashtag) {
+        MyArrayList<V> posts = new MyArrayList<>(1);
+
+        for (int i = 0; i < array.getSize(); i++) {
+
+            try {
+                NodeHash aux = array.get(i);
+                while (aux != null) {
+                    if (aux.getValue() instanceof Post) {
+
+                        for(int j = 0; j < ((Post) aux.getValue()).getHashtags().size(); j++){
+                            if(((Post) aux.getValue()).getHashtags().get(j).equals(hashtag))
+                                System.out.println(((Post) aux.getValue()).getId() + " " + ((Post) aux.getValue()).getPublished_by());
+                        }   //for
+                        aux = aux.getNext();
+                    }   //if
+                }   //while
+            } catch (NullPointerException e) {
+            }
+        }   //for
+
+        return posts;
+    }
+
+    /**
+     * Funcio per realitzar la cerca per la taula de Hash
+     * @param key : K
+     * @return V
+     */
     public V get(K key){
         int index = getNode(key);
         NodeHash<K,V> node = array.get(index);
@@ -49,7 +92,11 @@ public class MapHash<K,V> {
         return null;
     }
 
-    //Add Value on MapHash
+    /**
+     * Procediment per inserir elements a la taula de Hash
+     * @param key : K
+     * @param value : V
+     */
     public void add(K key, V value){
         int index = getNode(key);
         NodeHash<K,V> pos = array.get(index);
@@ -75,6 +122,11 @@ public class MapHash<K,V> {
         }   //if
     }
 
+    /**
+     * Funcio que realitza la eliminacio d'un element que indiqui l'usuari
+     * @param key : K
+     * @return boolean
+     */
     public boolean remove(K key){
         int index = getNode(key);
         boolean found = false;
@@ -103,6 +155,9 @@ public class MapHash<K,V> {
         return true;
     }
 
+    /**
+     * Procediment per mostrar tots els elements de tipus User de l'estructura
+     */
     public void displayUsers(){
         for(int i = 0; i < array.getSize(); i++){
 
@@ -118,18 +173,28 @@ public class MapHash<K,V> {
         }   //for
     }
 
-    public void displayPosts(){
+    /**
+     * Procediment per mostrar tots els elements de tipus Post de l'estructura
+     */
+    public ArrayList displayPosts(){
+        ArrayList export = new ArrayList();
+
         for(int i = 0; i < array.getSize(); i++){
 
             try {
                 NodeHash aux = array.get(i);
                 while (aux != null) {
                     if(aux.getValue() instanceof Post) {
-                        System.out.println(((Post) aux.getValue()).getId());
+                        System.out.println(((Post) aux.getValue()).getId() + " Hashtags: ");
+                        for(int j = 0; j < ((Post) aux.getValue()).getHashtags().size(); j++)
+                            System.out.print(((Post) aux.getValue()).getHashtags().get(j) + " ");
+                        export.add(aux.getValue());
                         aux = aux.getNext();
                     }   //if
                 }   //while
             } catch(NullPointerException e){}
         }   //for
+
+        return export;
     }
 }

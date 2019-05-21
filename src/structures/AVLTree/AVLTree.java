@@ -5,6 +5,8 @@ import JsonObjects.Objects.User;
 import structures.NodeAlreadyExists;
 import structures.NodeDoesntExists;
 
+import java.util.ArrayList;
+
 /**
  * Classe amb les operacions basiques del arbre binari AVL
  * @author Alexander Roca
@@ -12,6 +14,8 @@ import structures.NodeDoesntExists;
  */
 public class AVLTree{
     private NodeAVL root;
+
+    private ArrayList to_export_posts = new ArrayList();
 
     /**
      * Funcio que obte l'alçada del arbre a partir d'un node
@@ -73,6 +77,16 @@ public class AVLTree{
         else if(n.getObject() instanceof Post)
             System.out.println(((Post) n.getObject()).getId());
         inOrder(n.getRight());
+    }
+
+    public void toExport(NodeAVL n){
+
+        if(n == null)
+            return;
+        toExport(n.getLeft());
+        if(n.getObject() instanceof Post)
+            to_export_posts.add(n.getObject());
+        toExport(n.getRight());
     }
 
     //PostOrder
@@ -157,6 +171,12 @@ public class AVLTree{
         }
     }
 
+    /**
+     * Funcio que realitza la cerca per l'arbre
+     * @param n : NodeAVL
+     * @param key : int
+     * @return NodeAVL
+     */
     public NodeAVL search(NodeAVL n, int key){
 
         if(n == null)
@@ -311,6 +331,14 @@ public class AVLTree{
             }   //if
         }   //else
         return n;
+    }
+
+    public ArrayList getTo_export_posts() {
+        return to_export_posts;
+    }
+
+    public void setTo_export_posts(ArrayList to_export_posts) {
+        this.to_export_posts = to_export_posts;
     }
 
     public NodeAVL getRoot() {

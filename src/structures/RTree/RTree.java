@@ -6,7 +6,7 @@ import structures.NodeAlreadyExists;
 import java.awt.geom.Point2D;
 
 /**
- * R-Tree class
+ * Classe de l'estructura R-Tree
  *
  * @author Alexander Roca
  * @version 12/04/2019 - 0.1
@@ -18,12 +18,23 @@ public class RTree {
     private NodeR root;
     private final int size; //Maxima capacitat que pot contenir cada node
 
+    /**
+     * Constructor de indicar quina dimensio tindra cada node de l'estructura i sobre quina regio es situara
+     * @param size : int
+     * @param coord_total : Array de double
+     */
     public RTree(int size, double[] coord_total) {
 
         this.root = new NodeR(coord_total, null);
         this.size = size;
     }
 
+    /**
+     * Funcio per inserir un element
+     * @param coord : Array de double
+     * @param obj : Object
+     * @return boolean
+     */
     public boolean insert_T(double[] coord, Object obj){
 
         try{
@@ -39,6 +50,14 @@ public class RTree {
         }
     }
 
+    /**
+     *
+     * @param n
+     * @param coord
+     * @param obj
+     * @return
+     * @throws NodeAlreadyExists
+     */
     public NodeR insert(NodeR n, double[] coord, Object obj) throws NodeAlreadyExists{
 
         Point2D aux_point = new Point2D.Double();
@@ -181,7 +200,7 @@ public class RTree {
         //Remove elements from actual node
         n.getNodes().removeAll();
 
-        System.out.println(n.getNodes().getSize());
+        //System.out.println(n.getNodes().getSize());
 
         //Indicates that now this node will contain squares
         n.setSquare(true);

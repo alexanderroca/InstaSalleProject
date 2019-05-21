@@ -1,5 +1,6 @@
 import JsonObjects.Objects.Post;
 import JsonObjects.Objects.User;
+import javafx.geometry.Pos;
 import structures.AVLTree.AVLTree;
 import structures.AVLTree.NodeAVL;
 import structures.Graph.Graph;
@@ -11,6 +12,7 @@ import java.io.File;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -143,6 +145,12 @@ public class Menu {
 
         User result = (User) mapHashUser.get(trie.getPossible_words().get(opcio - 1).hashCode());
 
+        if(result != null)
+            mostrarExit();
+        else
+            mostrarError();
+
+        trie.setPossible_words(null);
         limit_memoria = aux;
     }
 
@@ -165,6 +173,29 @@ public class Menu {
             aux_post.serializeJSON(transferInfoToArrayList(graph.getPosts()), path + "_posts");
         }   //if
 
+        if(avlTreePost != null){
+            Post aux = new Post();
+
+            avlTreePost.toExport(avlTreePost.getRoot());
+
+            aux.serializeJSON(avlTreePost.getTo_export_posts(), "avlTreePost");
+        }   //if
+
+        if(trie != null){
+            User aux = new User();
+
+            trie.suggerationsTrie("");
+
+            aux.serializeJSON(transferInfoToArrayList(trie.getPossible_words()), "trieUsers");
+
+            trie.setPossible_words(null);
+        }   //if
+
+        if(mapHashPost != null){
+            Post aux = new Post();
+
+            aux.serializeJSON(mapHashPost.displayPosts(), "hashMapPost");
+        }   //if
     }
 
     /**
@@ -313,8 +344,8 @@ public class Menu {
             avlTreePost = new AVLTree();
             mapHashPost = new MapHash(posts.length);
 
-            for (int i = 0; i < users.length; i++){
-                avlTreePost.insert_T(users[i].getUsername().hashCode(), users[i]);
+            for (int i = 0; i < posts.length; i++){
+                avlTreePost.insert_T(posts[i].getId(), posts[i]);
                 mapHashPost.add(posts[i].getId(), posts[i]);
             }   //for
 
@@ -403,11 +434,11 @@ public class Menu {
 
     public void hashTableOption(String opcio){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Seleccion-hi sobre quina estructura vol actuar -> Post/User (p/u)");
+        System.out.println("Seleccion-hi sobre quina estructura vol actuar -> Post/User/Hashtag (p/u/h)");
         System.out.print("Opcio: ");
         String estructura = sc.nextLine();
 
-        if(estructura.equals("p") || estructura.equals("u")) {
+        if(estructura.equals("p") || estructura.equals("u") || estructura.equals("h")) {
             switch (opcio) {
                 case "3":
                     System.out.println("\nUsers:");
@@ -468,6 +499,17 @@ public class Menu {
                         int postToSearch = sc_search.nextInt();
                         Post post_found = (Post) mapHashPost.get(postToSearch);
                         if(post_found != null)
+                            mostrarExit();
+                        else
+                            mostrarError();
+                    }   //else-if
+                    else if(estructura.equals("h")){
+                        Scanner sc_hashtag = new Scanner(System.in);
+                        System.out.print("Hashtag: ");
+                        String hashtag = sc_hashtag.nextLine();
+                        MyArrayList<Post> posts = mapHashPost.get(hashtag);
+
+                        if(posts != null)
                             mostrarExit();
                         else
                             mostrarError();

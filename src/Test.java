@@ -33,8 +33,8 @@ public class Test {
         MapHash mapHash = new MapHash(users.length);
         Trie trie = new Trie();
 
-        double[] coords = {-10000, -10000, 10000, 10000};
-        RTree rtree = new RTree(4, coords);
+        double[] coords = {-1000000, -1000000, 1000000, 1000000};
+        RTree rtree = new RTree(10, coords);
 
         MyArrayList arrayList = new MyArrayList(1);
 
@@ -47,12 +47,15 @@ public class Test {
             trie.insert(users[i].getUsername());
         }   //for
 
+        double[] coords_aux = new double[2];
         for(int i = 0; i < posts.length; i++) {
-            double[] coords_aux = new double[2];
 
             coords_aux[0] = (double) posts[i].getLocation().get(0);
             coords_aux[1] = (double) posts[i].getLocation().get(1);
 
+            System.out.println(i);
+            if(i == 119)
+                System.out.println("HERE");
             rtree.insert_T(coords_aux, posts[i]);
         }   //for
 

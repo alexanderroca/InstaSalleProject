@@ -129,6 +129,10 @@ public class Graph {
             for(int i = 0; i < users.getSize() && !found; i++){
                 if(users.get(i).getUsername().equals(username)){
                     user = users.get(i);
+                    System.out.println("User: " + user.getUsername());
+                    System.out.print("\t->Follow: ");
+                    for(int j = 0; j < user.getMy_to_follow().getSize(); j++)
+                        System.out.print(user.getMy_to_follow().get(j) + " ");
                     found = true;
                 }   //if
             }   //for
